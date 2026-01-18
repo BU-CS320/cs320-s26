@@ -1,0 +1,49 @@
+\NeedsTeXFormat{LaTeX2e}[1994/06/01]
+\ProvidesPackage{cs320}[2025/08/22 v0.01 LaTeX package for course manuals]
+
+% Palatino
+\usepackage{mathpazo}
+
+% line spacing
+\usepackage{setspace}
+\setstretch{1.15}
+
+% 1 inch margins
+\usepackage[margin=1in]{geometry}
+
+% better quotes
+\usepackage{csquotes}
+
+% todos
+\usepackage{todonotes}
+\setuptodonotes{inline}
+
+% color (https://latexcolor.com)
+\definecolor{burntorange}{rgb}{0.8, 0.33, 0.0}
+\definecolor{fireenginered}{rgb}{0.81, 0.09, 0.13}
+\definecolor{iris}{rgb}{0.35, 0.31, 0.81}
+\definecolor{teagreen}{rgb}{0.82, 0.94, 0.75}
+\definecolor{piggypink}{rgb}{0.99, 0.87, 0.9}
+\definecolor{lavendermist}{rgb}{0.9, 0.9, 0.98}
+\definecolor{powderblue(web)}{rgb}{0.69, 0.88, 0.9}
+\definecolor{cornsilk}{rgb}{1.0, 0.97, 0.86}
+\definecolor{darkpastelgreen}{rgb}{0.01, 0.75, 0.24}
+
+% math
+\usepackage{amsthm, amsmath, amssymb, mathtools}
+\usepackage{thmtools, thm-restate}
+
+% no chapter number heading
+\usepackage{titlesec}
+\titleformat{\chapter}[display]
+  {\normalfont\bfseries}{}{0pt}{\Huge}
+
+% square \item bullets
+\usepackage{enumitem}
+
+% order matters, leave these at the end
+\usepackage{hyperref}
+\usepackage{cleveref}
+
+% END OF FILE
+\endinput

@@ -1,0 +1,687 @@
+\documentclass[10pt]{report}
+\usepackage{manual}
+
+\title{
+  {\huge Course Manual} \\
+  \vspace{2cm}
+  {\large \texttt{CAS CS 320}: \textit{Concepts of Programming Languages}} \\
+  {\large Boston University}
+}
+\date{Spring 2026}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\abstract{
+
+  This is a manual for the course \texttt{CAS CS 320}:
+  \textit{Concepts of Programming Languages}.  It contains a general
+  overview of the course and its policies.  It does \textit{not}
+  contain specifics about the material being covered in the course;
+  this appears on the
+  \href{https://bu-cs320.github.io/cs320-s26/index.html}{course
+    webpage}.  \Cref{fig:overview} contains an overview of the course.
+
+  \begin{figure}
+    \begin{tabular}{|l|l|}
+      \hline
+      Course Code & \texttt{CAS CS 320} \\
+      Course Title & Concepts of Programming Languages \\
+      Semester & Spring 2026 \\
+      Instructor & Nathan Mull \\
+      Teaching Fellow & Anthony DeRossi \\
+      Teaching Assistant & Vivian Tvedt \\
+      Course Assistants & Miranda Quimbar and Shiyun Yang \\
+      Meeting Times
+      & Tuesday and Thursday, 2:00PM-3:15PM (A1) \\
+      & Tuesday and Thursday, 3:30PM-4:45PM (A2) \\
+      Meeting Location
+      & \href{https://www.bu.edu/classrooms/classroom/sci-113/}{SCI 113} (A1) \\
+      & \href{https://www.bu.edu/classrooms/classroom/sar-103/}{SAR 103} (A2) \\
+      Midterm Dates
+      & February 19 (during lecture) \\
+      & March 31 (during lecture) \\
+      Grade Breakdown
+      & 05\% Workshops \\
+      & 05\% Labs \\
+      & 20\% Assignments \\
+      & 20\% Mini-projects \\
+      & 30\% Midterm Exams \\
+      & 20\% Final Exam \\
+      \hline
+    \end{tabular}
+    \centering
+    \caption{Course overview}
+    \label{fig:overview}
+  \end{figure}
+
+}
+
+\chapter{Week 0 To-Do list}
+
+You should complete the following items within the first 48 hours of
+the start of the semester.  Please reach out if you have concerns
+about any of the items listed.
+
+\begin{itemize}
+\item[$\square$] Verify that you have access to a laptop computer
+  during the semester
+\item[$\square$] Verify that you know where the lecture is held
+\item[$\square$] Verify that you know where the discussion section in
+  which you're registered is held
+\item[$\square$] Join Piazza with the following
+  \href{https://piazza.com/bu/spring2026/cascs320}{sign-up link}
+\item[$\square$] Join Gradescope with the following
+  \href{https://www.gradescope.com/courses/1222812}{sign-up link}
+  (Entry code: V44GKB)
+\item[$\square$] Familiarize yourself with the
+  \href{https://bu-cs320.github.io/cs320-s26/index.html}{course
+    webpage}
+\item[$\square$] \textit{(Optional)} Add the Piazza, Gradescope, and
+  course webpage as bookmarks in your Internet browser
+\item[$\square$] Review the course calendar and determine which office
+  hours you're able to attend
+\item[$\square$] \textit{(Optional)} Add the course calendar to your
+  own calendar
+\item[$\square$] Read this manual in its entirety
+\item[$\square$] Submit the assignment on Gradescope confirming that
+  you've read this manual
+\item[$\square$] If necessary, review material from \texttt{CAS CS
+  210}: \textit{Computer Systems} on how to work in the terminal
+\end{itemize}
+
+\chapter{General Information}
+
+\texttt{CAS CS 320}: \textit{Concepts of Programming Languages} is a
+course \textit{about} programming languages, particularly the
+\textbf{design} and \textbf{implementation} of programming
+languages. In this course, we take up the programming language as an
+object of formal study. This course is \textit{not} about how to program,
+though the principles we cover are generally useful for writing and
+reasoning about programs.
+
+The first part of the course is on functional programming in OCaml,
+based on \texttt{CS3110}: \textit{Data Structures and Functional
+  Programming} at Cornell University. The topics include functional
+design, algebraic data types, higher-order functions, polymorphism,
+functional data structures, and modular programming. It’s during this
+part that we learn to \textit{think} functionally, to view programs
+not as sequences of commands manipulating global state, but as
+compositions of functions that deconstruct and reorient data.  We also
+introduce in this part of the course fundamental concepts from the
+theory of programming languages\textemdash like inference systems,
+typing rules, semantic rules, and derivations\textemdash with an eye
+towards how these concepts apply to OCaml in particular.
+
+In the second part of the course we implement several interpreters for
+fragments of OCaml; that is, we write OCaml programs that
+\textit{execute} other OCaml programs. The topics covered include
+formal grammar, parsing, operational semantics, variable scope and
+binding, closures, type checking, type safety, and type inference. By
+the end of the course, you’ll be able to execute some of the simpler
+programs we wrote in the first part of the course using your own
+interpreter.  You'll also be able to reason formally about what a
+programming language is, and what makes some programming languages
+good and others not-so-much.
+
+\section{Prerequisites}
+
+The formal prerequisites for this course are:
+\begin{itemize}
+\item \texttt{CAS CS 111} \& \texttt{112}: \textit{Introduction to Computer Science}
+\item \texttt{CAS CS 131}: \textit{Combinatoric Structures}
+\item \texttt{CAS CS 210}: \textit{Computer Systems}
+\end{itemize}
+You’ll get the most out of this course (and you'll have the best time
+of it) if you’ve completed the 200 level major requirements for the
+computer science degree at BU. Experience with a high-level
+programming language (like Python or Java) is a must.  The dependence
+on \texttt{CS131} is a level of mathematical maturity and
+exposure to the principle of induction.  We don't depend explicitly on
+the material of \texttt{CS210}, but it will be useful in
+appreciating the second half of the course.  We also assume general
+comfort in the terminal.  If you don't have experience with this, then
+you'll be have to self-learn it within the first week of the course.
+
+\section{Learning Objectives}
+
+From this course we hope that you will:
+\begin{itemize}
+\item
+  Learn the rudiments of OCaml, a functional programming language
+  which is likely very different from other languages you’ve learned.
+  In particular, we'd like you learn to \enquote{think functionally}
+  and understand the benefits of doing so.
+\item
+  Learn to read and write formal specifications for programming
+  languages.
+\item
+  Gain an understanding of the theoretical basis for what makes a
+  \enquote{good} programming language.
+\item
+  Gain an appreciation for what goes into the development of the
+  programming languages we use everyday, particularly by implementing
+  interpreters for a collection of OCaml-like languages.
+\end{itemize}
+\texttt{CS320} fulfills a single unit in the BU Hub area
+\textbf{Creativity/Innovation}.  This deserves some
+explanation. Programming language design is a (perhaps surprisingly)
+creative endeavor, in which personal aesthetics play a large role in
+what features are included (or not) in a language.  A fair amount of
+creativity also goes into discovering new features that aid the
+safety, productivity, or ergonomics of a new
+language.\footnote{\href{https://rust-lang.org}{Rust} is a great
+example of a modern language with a fair amount of creativity behind
+its design.} This is in part to say that what we cover is based on our
+notion of what a \enquote{good} programming language is, which won’t
+necessarily align with your own views or the views of other
+programming language designers. This also must be understood in spite
+of the fact that much of what we do in the course will not feel very
+creative. All I can say on this point: you have to know what came
+first before you can change the state-of-the-art.
+
+One more point I'd like to make. It's no secret that \texttt{CS320} is
+not everyone's first choice for a course to take in our
+department. OCaml is not a terribly popular language, and programming
+language design doesn't have the same hype as machine learning or data
+science.  Now, I wouldn't go as far as saying that OCaml and
+programming language design are \enquote{on the rise,} but there are
+some interesting trends worth noting.
+
+\begin{itemize}
+\item OCaml is being heavily used in and developed by the trading firm
+  \href{https://www.janestreet.com}{Jane Street}, and is being used to
+  a lesser extent by companies like Bloomberg, Docker, and Facebook,
+  among others.
+\item
+  OCaml won the ACM SIGPLAN's 2023 Programming Languages Software
+  Award.\footnote{\href{https://ocaml.org/news/sigplan_announcement}{\texttt{https://ocaml.org/news/sigplan\_announcement}}}
+\item
+  In LinkedIn's ranking of the 50 top colleges in the US for long-term
+  career success, one of the \enquote{most notable skills} offered by
+  BU (university-wide) is
+  OCaml.\footnote{\href{https://www.linkedin.com/pulse/linkedin-top-colleges-2025-50-best-long-term-career-success-kritf/}{\texttt{https://www.linkedin.com/pulse/linkedin-top-colleges-2025-50-best-long-term-career-success-kritf/}}}
+\item
+  I've been told that OCaml may become a language which is used in
+  competitive programming.
+\item
+  Rust (a fairly new systems programming language with a lot of hype)
+  was originally written in OCaml and borrows many of its functional
+  features. In the other direction, Jane Street recently came out with
+  \href{https://oxcaml.org}{OxCaml}, an extension to OCaml with
+  Rust-like features.
+\item Rust itself is an fascinating contemporary example of
+  programming language design having a major impact on the world of
+  software engineering.
+\item
+  Domain specific language and compilers are becoming more common
+  tools for dealing with bottlenecks in high-level languages, in areas
+  as wide-ranging as machine learning, networks, and scientific
+  computing.
+\end{itemize}
+Just a couple things to think about as you're determining what skills
+are worth having in your toolbox.
+
+\section{Course Structure}
+
+\subsection*{Lectures}
+
+We hold lectures each week on Tuesday and Thursdays (see the registrar
+and the course webpage for details).  During lecture, we cover
+the material that is presented in the reading, do live coding
+examples, and provide practice problems.  The material used in the
+lecture is made available on the course webpage before the lecture
+meeting.  Barring technical difficulties, recordings of the lecture
+will be made available.
+
+We won't take attendance during lecture (except during
+Workshops\textemdash see below for further details) but it is highly
+recommended that you attend, and refer you to the BU
+\href{https://www.bu.edu/academics/policies/attendance/}{Attendance}
+policy.  You'll be expected to participate in lectures by working on
+practice problems and occasionally discussing topics with the people
+sitting around you.
+
+\subsection{Workshops}
+
+Six lectures during the semesters will be run as workshops. This means
+that you will be expected to do some at-home learning beforehand; we
+will spend a majority of the lecture time working on an in-class
+activity in groups. We take attendance insofar as you will have to
+submit the required material by the end of lecture.
+
+\subsection*{Discussion Sections}
+
+We hold discussion sections each week on Monday (see the registrar and
+the course webpage for details).  We take attendance insofar as you
+will have to submit the required material by the end of lab.
+
+\section{Resources}
+
+\subsection*{Material}
+
+The first half of the course uses the textbook
+\href{https://cs3110.github.io/textbook/cover.html}{OCaml Programming:
+  Correct + Efficient + Beautiful}. All other course material will be
+made available on the course
+\href{https://github.com/BU-CS320/cs320-fall-2025}{GitHub repository}
+and on the course webpage. If you are unfamiliar with git and GitHub,
+see the \href{https://docs.github.com/en/get-started}{GitHub
+  documentation} for information and tutorials. Please check the
+course webpage and repository frequently.  We'll also be testing out
+some new notes for this course. These will be made available on the
+course webpage.
+
+\subsection*{Programming}
+
+The programming in this course is done in OCaml.  You're required to
+set this up on you personal machine or on a machine that you'll have
+access to throughout the semester.  You'll have an opportunity to get
+help with this during your first discussion section.  Please attend
+office hours and use Piazza if you need help troubleshooting. If
+you're are worried about access to technology, please contact me as
+soon as possible and we can see what we can do (though I cannot make
+any guarantees).
+
+\subsection*{Course Communication}
+
+Course announcements and discussions will happen on Piazza. If you're
+unfamiliar with Piazza, see their
+\href{https://support.piazza.com/support/solutions/48000185443}{support
+  page} for information and tutorials. Some policies regarding the use
+of Piazza:
+\begin{itemize}
+\item
+  \textit{Don't ask homework questions directly.} Formulate a question which
+  will aid in your understanding, and will hopefully help others as
+  well.
+\item
+  \textit{Don't give homework solutions directly.}
+\item
+  \textit{Piazza is as useful as it is active.} Teaching fellows and course
+  assistants will be answering questions on Piazza, but don't hesitate
+  to answer questions yourself.
+\end{itemize}
+Make sure to set notifications correctly so you can keep up with
+updates regarding the course. \enquote{I didn't see the Piazza post
+  about it} is never a valid excuse for missing a piece of
+information.
+
+\subsection*{Submission}
+
+We'll be using Gradescope for assignment submissions. If you are
+unfamiliar with Gradescope, see their
+\href{https://www.gradescope.com/get_started}{Get Started} page for
+information and tutorials.
+
+\chapter{Evaluation}
+
+\begin{figure}
+  \begin{tabular}{|l|l|}
+    \hline
+    05\% & Workshops (6 total, 1 dropped) \\
+    05\% & Labs (13 total, 3 dropped) \\
+    20\% & Assignments (6 total, 1 dropped) \\
+    20\% & Mini-projects (3 total) \\
+    30\% & Midterm Exams \\
+    20\% & Final Exam \\
+    \hline
+  \end{tabular}
+  \centering
+  \caption{Grade breakdown}
+  \label{fig:grades}
+\end{figure}
+
+The grading breakdown for this course is given in \Cref{fig:grades}.
+The sites of evaluation are detailed in the following sections.  Your
+raw percentage will be determined according to this breakdown and your
+final letter grade is guaranteed to be at least what is determined by
+Wheelock College's
+\href{https://www.bu.edu/academics/wheelock/policies/grades-course-credits-incomplete-coursework/}{Grading
+  Scale}.\footnote{Formally we're part of the College of Arts and
+Sciences (CAS), but this grading scale is standard.}  But, to borrow a
+phrase from Professor Mark Bun: \enquote{to correct for the
+  possibility of [quizzes] and exams being more difficult than
+  anticipated, letter grades may be (significantly) increased above
+  these guarantees.}  Specifically, we may retroactively curve exam
+and quiz grades using a linear scale.\footnote{See
+\href{https://divisbyzero.com/2008/12/22/how-to-curve-an-exam-and-assign-grades/}{this
+  article} for details if you're interested.}
+
+\section{Workshops}
+
+Each workshop will have an in-class assignment that you will be
+required to submit at the end of the lecture period.  There are 6
+workshops total.  We drop your lowest workshop assignment grade, so
+only 5 workshop assignments count towards your final grade.
+
+\section{Labs}
+
+Each lab will have an in-class assignment that you will be required to
+submit at the end of the discussion section.  There are 13 labs total.
+We drop your lowest 3 lab grades, so only 10 workshop assignments
+count towards your final grade.
+
+\section{Assignments}
+
+Assignments are released weekly on Thursdays during the first half of
+the semester and are due a week later on the following Thursday by
+8:00PM.  See the calendar on the course webpage for details.
+Assignments consist of written problems that are to be submitted as a
+pdf file via Gradescope, as well as programming problems that will be
+autograded.  There are 6 assignments total.  We drop your lowest
+assignment grade, so only 5 assignments count towards your final grade
+in the course.  We don't accept late assignments under any
+circumstances.
+
+You'll notice that, despite the fact that there are many assignments,
+they account for a very small portion of your final grade.  You should
+think of the assignments in this course as \textit{accountability
+  checks} in that they require to engage with the material each week.
+But the more effort you put into learning and internalizing the
+material in the assignments, the more successful you'll be in the
+other evaluation sites of the course, like the quizzes and
+exams.\footnote{We understand that this approach to evaluation will
+not be universally liked, and that in-person evaluation can be
+challenging.  We take this under careful consideration when we
+calibrate the difficulty of the material and the workload we expect.}
+
+\section{Mini-Projects}
+
+Mini-projects are released (roughly) every other week on Thursdays in
+the second half of the course, and are due two weeks later on Thursday
+by 8:00PM.  See the calendar on the course webpage for details. Each
+mini-project requires you to build an interpreter. Each interpreter
+will be slightly more complex than the last. You should think of these
+as roughly the same amount of work as two assignments, but with a
+single large programming task (building an interpreter) instead of
+small programming tasks.  Mini-projects will be accompanied with a
+check-in, which is another form of \textit{accountability check} to
+verify you're making progress on the project.  There are 3
+mini-projects total.  \textbf{It's not possible to drop a
+  mini-project.}
+
+\section{Midterm Exams}
+
+The midterm exams will be held on February 19 and March 31 during
+lecture.  They will be a closed-note written exams.  The grades of the
+midterm exams will be weighted as follows:
+
+\begin{displaymath}
+  20\% \times \max (s_1, s_2) + 10\% \times \min (s_1, s_2)
+\end{displaymath}
+where $s_1$ is the (normalized) score recieved on the first midterm
+and $s_2$ is the (normalized) score recieved on the second.  In other
+words, we offer a small amount of grade forgiveness by weighting your
+better performance more favorably.
+
+\section{Final Exam}
+
+The date of the final exam will be determined later in the semester.
+It will be a closed-note written exam.  It is meant to verify that you've
+internalized the basic concepts of the course, and can also apply them
+to solve novel problems.
+
+\chapter{Policies}
+
+There are a number of policies associated with this course, some
+specific to the course and others which hold more generally in the
+university.  These policies are detailed below in the following
+sections.
+
+
+\section{Diversity Statement}
+
+Our aim is to present material in a way that respects the diversity of
+the student body. If we fail to do this, please make us aware. Any
+suggestions are welcome and appreciated. We also expect students to
+appreciate and respect the unique opportunity they have to participate
+in a diverse student body like ours.
+
+\section{Disability Statement}
+
+If you require disability accommodations, please contact us as soon as
+possible. You should provide us with the appropriate documentation,
+available through the \href{https://www.bu.edu/disability/}{Disability
+  and Access Services}.  In order to receive accommodations, you
+\textit{must} be in contact with us.
+
+If there’s a policy that we're failing to comply with, please
+reach out with suggestions. And if you’d like accommodations that
+aren't covered by existing services or policies, feel free to contact
+us and we can see what we can do.  We want everyone to feel able to
+fully participate in the course.
+
+\section{Sexual Misconduct}
+
+Please read the
+\href{https://www.bu.edu/policies/sexual-misconduct-title-ix-hr/}{Sexual
+  Misconduct Policy} and review the entire page for information on
+talking to someone confidentially about experiences of sexual
+misconduct, filing a report, and any other relevant information. Above
+all, you should feel safe, and able to be productive. If this is not
+the case, please reach out to us or someone else immediately.
+
+The members of the course staff are considered \enquote{mandated
+  reporters} and are required to report cases of sexual misconduct.
+Therefore, \textbf{we cannot guarantee the confidentiality of a
+report}. We must provide our Title IX coordinator with relevant details
+such as the names of those involved in the incident.  The university
+will consider a request for confidentiality and respect it to the
+extent possible.
+
+With that in mind, if you come to any of us with questions or
+concerns, we will handle the situation to the best of our ability and
+connect you with available resources.
+
+
+\section{Academic Integrity}
+
+Please read the
+\href{https://www.bu.edu/academics/policies/academic-conduct-code/}{Academic
+  Conduct Code} and review the entire page for information about what
+constitutes academic dishonesty and what penalties arise as a result
+of violations of this code.  This is taken very seriously at BU and we
+take it seriously in this courses.  There are a couple policies about
+which we'll be strict:
+\begin{itemize}
+\item
+  You must submit your own work for all assignments and mini-projects.
+  Submitting the same file as another student, or something notably
+  similar (e.g., identical wording or code in large parts of the
+  solution) is considered academic misconduct and will be handled
+  accordingly.
+\item
+  Copying or information sharing regarding in-class evaluations like
+  quizzes and exams is considered academic misconduct and will be
+  handled accordingly.
+\end{itemize}
+If you work with others, consult materials found on the Internet, or
+use an AI assistant, you should cite your sources. This is a useful
+skill in any setting, and so we recommend being as conservative as
+possible regarding citations. In any assignment, these citations
+should appear next to every corresponding problem (in comments if the
+submission is code). Some examples:
+
+\begin{itemize}
+\item
+  I discussed problem 1 and 2 with Leah Smith. She helped me
+  understand X and Y aspects of the problem.
+\item
+  I saw the stack overflow post
+  stackoverflow.com/questions/6681284/python-numpy-arrays which
+  informed my solution.
+\item
+  I helped Zihan Guo with problem 4. I told them to try using X.
+\item
+  I asked ChatGPT “what’s the largest eigenvalue of this
+matrix?”
+\end{itemize}
+When in doubt, err on the side of longer, more descriptive citations.
+We do not consider missing or poor citations is a direct act of
+academic misconduct, but we will consider this grounds for further
+investigation in suspicious cases.  Above all, use your best judgment
+and remember:
+\begin{itemize}
+\item
+  We care about your success in this course. We provide a number of
+  avenues to ask for help, please use them.
+\item
+  You will have to answer questions on quizzes and exams without
+  external aids (and in interviews when you apply for a job).
+\item
+  If you don’t know how to start thinking about a problem, it’s okay
+  to ask for pointers in office hours and on Piazza.
+\item
+  We have safeguards (like dropped homework assignments) in the case
+  you are unable to complete an assignment. In other words, don't
+  submit someone else's work when you can drop an assignment.
+\end{itemize}
+
+\section{Generative AI}
+
+The problem of generative AI in higher education will likely occupy us
+for the next decade or so.  The role of these tools our lives is still
+an open question, one with many possible answers.  But these tools
+exists, and the university, for better or for worse, has made them
+more accessible with the introduction of
+\href{https://terriergpt.bu.edu/login}{TerrierGPT}, to which all
+students of the university have access.  As such, all courses
+(including ours) are reviewing their policies.  Keep in mind that this
+is all one big experiment.  We don't know if our policy makes sense in
+the long term (or even now).  But it's our attempt to come to terms
+with the appearance of these tools in our courses.
+
+The policy this semester: \textbf{The use of generative AI to produce
+  solutions to assignments and mini-project is prohibited.} You are
+allowed to use these tools to aid your learning.  We understand that
+this is difficult to enforce, much of this will be on the honor
+systems.  In an lower-division course, we might have a different
+policy, but a this point in your academic career, we expect that you
+are able to make the correct judgments as to the use of generative AI.
+Also, as you might have noted, we've re-weighted evaluation sites in
+order to put a greater emphasis on in-class closed-book evaluation.
+
+An obligatory concluding remark: we know that existing models can
+solve many of the problems we will ask you.  This does not negate the
+value in knowing how to do them without the help of external tools.
+To draw an imperfect analogy, we don't learn a new language in order
+to have memorized a vast collection of words and grammar rules, but in
+order to \textit{internalize} the language, and learn how to
+\textit{interact} with it and in it.  This is our goal in this course
+and beyond.  These tools can be incredibly useful in the process of
+learning and internalizing.  But the internalizing is what we really
+want to achieve, so we can see a problem and can \textit{sense} the
+underlying structure to which we can apply our knowledge from this
+course.
+
+\section{Additional Attendance Policies}
+
+As we've noted, we won't take attendance in our course. Instead, we
+remind you that, according to the
+\href{https://www.bu.edu/academics/policies/attendance/}{Attendance}
+policy at BU, you're required to attend the courses in which you're
+registered.
+
+\subsection*{Absence Due to Religious Observance}
+
+According to the BU policy on
+\href{https://www.bu.edu/academics/policies/absence-for-religious-reasons/}{Absence
+  Due to Religious Observance}: you \enquote{shall be excused from any
+  such examination or study or work requirement, and shall be provided
+  with an opportunity to make up such examination, study, or work
+  requirement that may have been missed because of such absence on any
+  particular day; provided, however, that such makeup examination or
+  work shall not create an unreasonable burden upon such school.}
+
+\subsection*{Bereavement}
+
+According to the BU policy on
+\href{https://www.bu.edu/academics/policies/student-bereavement/}{Student
+  Bereavement}: you \enquote{should be granted up to five weekdays of
+  bereavement leave for the death of an immediate family member.} Your advisor should help you coordinate your leave.
+
+\section{Additional Grading Policies}
+
+\subsection*{Regrade Requests}
+
+Regrade requests may be submitted on Gradescope for up to one week
+after receiving the grade for an evaluation site.
+Regrade requests will only be considered in the case that the grader
+has made a mistake in grading.  Any regrade requests which solely
+appeal for a higher grade will not be considered.
+
+\subsection*{Grading Grievances}
+
+According to the BU policy on
+\href{https://www.bu.edu/academics/policies/policy-on-grade-grievances-for-undergraduate-students-in-boston-university-courses}{Grade
+  Grievances}: you may \enquote{contest a final course grade received
+  in a unit-bearing Boston University course when that grade is
+  alleged by the student to be arbitrary.}  Read the policy for more
+information.  We recommend contacting us before submitting a formal
+appeal.
+
+\subsection*{Incomplete Grades}
+
+According to the BU policy on \href{
+ https://www.bu.edu/academics/policies/incomplete-coursework/}{Incomplete
+  Coursework}: \enquote{An incomplete grade (I) is used only when the
+  student has conferred with the instructor prior to the submission of
+  grades and offered acceptable reasons for the incomplete work. An
+  incomplete grade may be appropriate when the student has
+  participated in and completed requirements representing a majority
+  of the course, and circumstances prevent the student from completing
+  remaining requirements by the conclusion of the course.} In
+particular, \textbf{you must contact us before the last day of the
+  semester in order to receive an incomplete grade.}
+
+\chapter{Closing Remarks}
+
+Quite a bit goes into organizing a course as well as taking a course
+. In light of my comments on citations, I'll note that much of what's
+in this document is based on similar documents (often taken without
+permission) by Mark Crovella, Mark Bun, Jonathan Appavoo, Preethi
+Narayanan, Ravi Chugh, Andrew McNutt, and others I may be missing.
+All told, we hope that most of this logistical information will be
+overshadowed in your memory by the concepts of the course, and that we
+can focus on having a good time doing math and programming.
+
+\section{Course Agreement}
+
+In addition to a manual, we also consider this document a contract. The following
+is what you must agree to in order to remain in this course.
+
+\begin{quote}
+  \textit{By enrolling in this course, I am agreeing to the policies
+    outlined in this document, and I will uphold them to the best of
+    my ability. I will also, generally speaking, try to be a
+    reasonable person and be nice and good and respectful to the
+    people around me taking\textemdash and running \textemdash the
+    course.  In return, I expect a high-quality learning experience
+    and respect from those around me taking\textemdash and
+    running\textemdash the course.}
+\end{quote}
+
+\section{University Resources}
+
+There are quite a few BU resources, it can sometimes be overwhelming.
+Here’s a small list of the ones we think are important.  If you’re
+struggling in this course due to personal/health conditions, we can’t
+guarantee we can help, but if you’re comfortable reaching out, feel
+free to send us an email and we can see if we can point you towards
+the correct resources. If you’re not comfortable reaching out to us,
+that’s okay too, hopefully this list can help you find what you need.
+Also, keep in mind you can post anonymously on Piazza if you want to
+ask for help without including your name.
+\begin{itemize}
+\item \href{https://www.bu.edu/disability/}{Disability and Access Services}
+\item \href{https://www.bu.edu/shs/}{Student Health Services}
+\item \href{https://www.bu.edu/shs/outreach-prevention/}{Outreach and Prevention}
+\item \href{https://www.bu.edu/shs/mental-health/}{Behavioral Medicine}
+\item \href{https://www.bu.edu/shs/survivor-support/}{Survivor Support (SARP)}
+\item \href{https://www.bu.edu/advising/educational-resource-center/}{Educational Resources Center}
+\item \href{https://www.bu.edu/isso/}{International Students \& Scholars Office}
+\end{itemize}
+\end{document}
