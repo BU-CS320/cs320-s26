@@ -7,7 +7,7 @@ course, we take up the programming language as an /object of formal
 study/.  See the course manual and the schedule below for more
 details.
 * Links
-+ Course Manual
++ [[file:manual/main.pdf][Course Manual]]
 + [[https://github.com/BU-CS320/cs320-s26][Course Repository]]
 + [[https://piazza.com/bu/spring2026/cascs132][Piazza]]
 + [[https://www.gradescope.com/courses/1222812][Gradescope]] (V44GKB)
