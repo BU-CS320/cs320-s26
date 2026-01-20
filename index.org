@@ -13,69 +13,69 @@ details.
 + [[https://www.gradescope.com/courses/1222812][Gradescope]] (V44GKB)
 + [[https://nmmull.github.io/stdlib320/stdlib320/Stdlib320/index.html][Course Standard Library]]
 * Schedule
-|------+--------------------------------------+----------------------------------|
-| Date | Topic                                | Notes                            |
-|------+--------------------------------------+----------------------------------|
-| 1/20 | Introducing OCaml                    | Read the course manual           |
-| 1/22 | Recursion and Lists                  | Assignment 1 (A1) out            |
-|------+--------------------------------------+----------------------------------|
-| 1/26 | Lab 1: Verifying your Set-up         |                                  |
-| 1/27 | Designing Functions (Workshop)       |                                  |
-| 1/29 | Polymorphism                         | A2 out, A1 due                   |
-|------+--------------------------------------+----------------------------------|
-| 2/2  | Lab 2: More OCaml Practice           |                                  |
-| 2/3  | Inference Rules                      |                                  |
-| 2/5  | Derivations                          | A3 out, A2 due                   |
-|------+--------------------------------------+----------------------------------|
-| 2/9  | Lab 3: Derivations Worksheet         |                                  |
-| 2/10 | Products and Sums                    |                                  |
-| 2/12 | Algebraic Data Types (Workshop)      | A4 out, A3 due                   |
-|------+--------------------------------------+----------------------------------|
-| 2/16 | *No Lab*                             | Presidents’ Day                  |
-| 2/17 | Lab 4: Midterm Review                | Substitute Monday                |
-| 2/19 | *Midterm 1*                          |                                  |
-|------+--------------------------------------+----------------------------------|
-| 2/23 | Lab 5: S-Expressions                 |                                  |
-| 2/24 | Higher-Order Programming             |                                  |
-| 2/26 | Practical FP (Workshop)              | A5 out, A4 due                   |
-|------+--------------------------------------+----------------------------------|
-| 3/2  | Lab 6: When2Meet                     |                                  |
-| 3/3  | Formal Grammar                       |                                  |
-| 3/5  | Grammatical Ambiguity                | A6 out, A5 due                   |
-|------+--------------------------------------+----------------------------------|
-| 3/9  | *No Lab*                             | Spring recess                    |
-| 3/10 | *No Lecture*                         | Spring recess                    |
-| 3/12 | *No Lecture*                         | Spring recess                    |
-|------+--------------------------------------+----------------------------------|
-| 3/16 | Lab 7: Parser Generators             |                                  |
-| 3/17 | Operational Semantics                |                                  |
-| 3/19 | Substitution                         | Mini-Project 1 (MP1) out, A6 due |
-|------+--------------------------------------+----------------------------------|
-| 3/23 | Lab 8: Grammar worksheet             |                                  |
-| 3/24 | Closures and Environments (Workshop) |                                  |
-| 3/26 | Simple Types                         | MP1 check-in due                 |
-|------+--------------------------------------+----------------------------------|
-| 3/30 | Lab 9: Midterm Review                |                                  |
-| 3/31 | **Midterm 2**                        |                                  |
-| 4/2  | Progress and Preservation            | MP2 out, MP1 due                 |
-|------+--------------------------------------+----------------------------------|
-| 4/6  | Lab 10: Closures Worksheet           |                                  |
-| 4/7  | Pattern Matching                     |                                  |
-| 4/9  | Exhaustiveness Checking              | MP2 check-in due                 |
-|------+--------------------------------------+----------------------------------|
-| 4/13 | Lab 11: Pattern Matching Worksheet   |                                  |
-| 4/14 | Hindley-Milner                       |                                  |
-| 4/16 | Unification (Workshop)               | MP3 out, MP2 due                 |
-|------+--------------------------------------+----------------------------------|
-| 4/20 | *No Lab*                             | Patriots’ Day                    |
-| 4/21 | Principle Types                      |                                  |
-| 4/22 | Lab 12: Principle Types Worksheet    |                                  |
-| 4/23 | Specialization                       | MP3 check-in due                 |
-|------+--------------------------------------+----------------------------------|
-| 4/27 | Lab 13: Final Exam Review            |                                  |
-| 4/28 | Bytecode Interpreters                |                                  |
-| 4/30 | Final Exam Review Session (Workshop) | MP3 due                          |
-|------+--------------------------------------+----------------------------------|
+|------+--------------------------------------+------------------+----------------------------------|
+| Date | Topic                                | Reading/Material | Notes                            |
+|------+--------------------------------------+------------------+----------------------------------|
+| 1/20 | Introducing OCaml                    | OCP [[https://cs3110.github.io/textbook/chapters/intro/intro.html][1]], [[https://cs3110.github.io/textbook/chapters/basics/intro.html][2]]         | Read the course manual           |
+| 1/22 | Recursion and Lists                  | OCP [[https://cs3110.github.io/textbook/chapters/data/lists.html][3.1]], [[https://cs3110.github.io/textbook/chapters/data/assoc_list.html][3.8]]     | Assignment 1 (A1) out            |
+|------+--------------------------------------+------------------+----------------------------------|
+| 1/26 | Lab 1: [[file:labs/lab01/lab01.org][Verifying your Set-up]]         |                  |                                  |
+| 1/27 | Designing Functions (Workshop)       |                  |                                  |
+| 1/29 | Polymorphism                         |                  | A2 out, A1 due                   |
+|------+--------------------------------------+------------------+----------------------------------|
+| 2/2  | Lab 2: More OCaml Practice           |                  |                                  |
+| 2/3  | Inference Rules                      |                  |                                  |
+| 2/5  | Derivations                          |                  | A3 out, A2 due                   |
+|------+--------------------------------------+------------------+----------------------------------|
+| 2/9  | Lab 3: Derivations Worksheet         |                  |                                  |
+| 2/10 | Products and Sums                    |                  |                                  |
+| 2/12 | Algebraic Data Types (Workshop)      |                  | A4 out, A3 due                   |
+|------+--------------------------------------+------------------+----------------------------------|
+| 2/16 | *No Lab*                             |                  | Presidents’ Day                  |
+| 2/17 | Lab 4: Midterm Review                |                  | Substitute Monday                |
+| 2/19 | *Midterm 1*                          |                  |                                  |
+|------+--------------------------------------+------------------+----------------------------------|
+| 2/23 | Lab 5: S-Expressions                 |                  |                                  |
+| 2/24 | Higher-Order Programming             |                  |                                  |
+| 2/26 | Practical FP (Workshop)              |                  | A5 out, A4 due                   |
+|------+--------------------------------------+------------------+----------------------------------|
+| 3/2  | Lab 6: When2Meet                     |                  |                                  |
+| 3/3  | Formal Grammar                       |                  |                                  |
+| 3/5  | Grammatical Ambiguity                |                  | A6 out, A5 due                   |
+|------+--------------------------------------+------------------+----------------------------------|
+| 3/9  | *No Lab*                             |                  | Spring recess                    |
+| 3/10 | *No Lecture*                         |                  | Spring recess                    |
+| 3/12 | *No Lecture*                         |                  | Spring recess                    |
+|------+--------------------------------------+------------------+----------------------------------|
+| 3/16 | Lab 7: Parser Generators             |                  |                                  |
+| 3/17 | Operational Semantics                |                  |                                  |
+| 3/19 | Substitution                         |                  | Mini-Project 1 (MP1) out, A6 due |
+|------+--------------------------------------+------------------+----------------------------------|
+| 3/23 | Lab 8: Grammar worksheet             |                  |                                  |
+| 3/24 | Closures and Environments (Workshop) |                  |                                  |
+| 3/26 | Simple Types                         |                  | MP1 check-in due                 |
+|------+--------------------------------------+------------------+----------------------------------|
+| 3/30 | Lab 9: Midterm Review                |                  |                                  |
+| 3/31 | **Midterm 2**                        |                  |                                  |
+| 4/2  | Progress and Preservation            |                  | MP2 out, MP1 due                 |
+|------+--------------------------------------+------------------+----------------------------------|
+| 4/6  | Lab 10: Closures Worksheet           |                  |                                  |
+| 4/7  | Pattern Matching                     |                  |                                  |
+| 4/9  | Exhaustiveness Checking              |                  | MP2 check-in due                 |
+|------+--------------------------------------+------------------+----------------------------------|
+| 4/13 | Lab 11: Pattern Matching Worksheet   |                  |                                  |
+| 4/14 | Hindley-Milner                       |                  |                                  |
+| 4/16 | Unification (Workshop)               |                  | MP3 out, MP2 due                 |
+|------+--------------------------------------+------------------+----------------------------------|
+| 4/20 | *No Lab*                             |                  | Patriots’ Day                    |
+| 4/21 | Principle Types                      |                  |                                  |
+| 4/22 | Lab 12: Principle Types Worksheet    |                  |                                  |
+| 4/23 | Specialization                       |                  | MP3 check-in due                 |
+|------+--------------------------------------+------------------+----------------------------------|
+| 4/27 | Lab 13: Final Exam Review            |                  |                                  |
+| 4/28 | Bytecode Interpreters                |                  |                                  |
+| 4/30 | Final Exam Review Session (Workshop) |                  | MP3 due                          |
+|------+--------------------------------------+------------------+----------------------------------|
 * Calendar
 #+begin_export html
 <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FNew_York&showPrint=0&showTitle=0&showTabs=0&showCalendars=0&showTz=0&mode=WEEK&src=Y18yYzczYjQzZjY2MTMyZjI1NjUyMGYxODNkNmNjYzVmMjI0ODg2Mjk2MzdmNGJhNTNhNWI0ZTVlY2U2YzRmNGVmQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23e4c441" style="border-width:0" width="1000" height="600" frameborder="0" scrolling="no"></iframe>
