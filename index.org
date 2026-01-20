@@ -9,7 +9,7 @@ details.
 * Links
 + [[file:manual/main.pdf][Course Manual]]
 + [[https://github.com/BU-CS320/cs320-s26][Course Repository]]
-+ [[https://piazza.com/bu/spring2026/cascs132][Piazza]]
++ [[https://piazza.com/bu/spring2026/cascs320][Piazza]]
 + [[https://www.gradescope.com/courses/1222812][Gradescope]] (V44GKB)
 + [[https://nmmull.github.io/stdlib320/stdlib320/Stdlib320/index.html][Course Standard Library]]
 * Schedule
