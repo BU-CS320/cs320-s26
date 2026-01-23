@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-01-21 Wed 09:44 -->
+<!-- 2026-01-23 Fri 13:52 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Getting Set-up</title>
@@ -18,21 +18,21 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org3d82521">1. Course Repository</a>
+<li><a href="#org14d2ea2">1. Course Repository</a>
 <ul>
-<li><a href="#org5a0797a">1.1. Mirroring the Course Repository</a></li>
-<li><a href="#orgd3e9e7d">1.2. Syncing with the Course Repository</a></li>
+<li><a href="#org11bd593">1.1. Mirroring the Course Repository</a></li>
+<li><a href="#org97ccbd9">1.2. Syncing with the Course Repository</a></li>
 </ul>
 </li>
-<li><a href="#org7d72b07">2. OCaml</a>
+<li><a href="#orgebd87bd">2. OCaml</a>
 <ul>
-<li><a href="#org5c9e409">2.1. Installing Packages</a></li>
-<li><a href="#org9f9d0b4">2.2. Setting up VSCode (Optional)</a></li>
+<li><a href="#org971ae3b">2.1. Installing Packages</a></li>
+<li><a href="#org9c158f7">2.2. Setting up VSCode (Optional)</a></li>
 </ul>
 </li>
-<li><a href="#org0a8c5b2">3. Assignment Workflow</a></li>
-<li><a href="#org52ad059">4. Dune</a></li>
-<li><a href="#orgd7df6fb">5. Utop</a></li>
+<li><a href="#org2be9637">3. Assignment Workflow</a></li>
+<li><a href="#orge6fb9ab">4. Dune</a></li>
+<li><a href="#org7b08d7b">5. Utop</a></li>
 </ul>
 </div>
 </div>
@@ -49,8 +49,8 @@ up a WSL development environment</a>.  If you're an Windows superuser you
 can try a native install, but we will not help you troubleshoot.
 </p>
 </blockquote>
-<div id="outline-container-org3d82521" class="outline-2">
-<h2 id="org3d82521"><span class="section-number-2">1.</span> Course Repository</h2>
+<div id="outline-container-org14d2ea2" class="outline-2">
+<h2 id="org14d2ea2"><span class="section-number-2">1.</span> Course Repository</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 We host the <a href="https://github.com/BU-CS320/cs320-s26">course repository</a> on GitHub.  You'll need to host a
@@ -63,8 +63,8 @@ course repository, which you'll then be able to merge into your
 private mirror.
 </p>
 </div>
-<div id="outline-container-org5a0797a" class="outline-3">
-<h3 id="org5a0797a"><span class="section-number-3">1.1.</span> Mirroring the Course Repository</h3>
+<div id="outline-container-org11bd593" class="outline-3">
+<h3 id="org11bd593"><span class="section-number-3">1.1.</span> Mirroring the Course Repository</h3>
 <div class="outline-text-3" id="text-1-1">
 <ol class="org-ol">
 <li><b>Create a GitHub account</b> if you haven't already.  You can use your
@@ -139,8 +139,8 @@ in which you'll put your solutions to assignments and projects.
 </p>
 </div>
 </div>
-<div id="outline-container-orgd3e9e7d" class="outline-3">
-<h3 id="orgd3e9e7d"><span class="section-number-3">1.2.</span> Syncing with the Course Repository</h3>
+<div id="outline-container-org97ccbd9" class="outline-3">
+<h3 id="org97ccbd9"><span class="section-number-3">1.2.</span> Syncing with the Course Repository</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 When materials are added to the course repository, you can easily
@@ -160,23 +160,23 @@ git push
 <p>
 This will merge the updates to the course repository into your private
 repository both locally and on GitHub.  You should almost never need
-to resolve a merge after doing this, but if you do, take a look at the
-GitHub Docs instructions on <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts">Addressing merge conflicts</a> for a refresher
-on how to do this.
+to resolve a merge conflict after doing this, but if you do, take a
+look at the GitHub Docs instructions on <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts">Addressing merge conflicts</a> for
+a refresher on how to do this.
 </p>
 </div>
 </div>
 </div>
-<div id="outline-container-org7d72b07" class="outline-2">
-<h2 id="org7d72b07"><span class="section-number-2">2.</span> OCaml</h2>
+<div id="outline-container-orgebd87bd" class="outline-2">
+<h2 id="orgebd87bd"><span class="section-number-2">2.</span> OCaml</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Next you need to set up your machine to be able to compile and run
 OCaml programs.
 </p>
 </div>
-<div id="outline-container-org5c9e409" class="outline-3">
-<h3 id="org5c9e409"><span class="section-number-3">2.1.</span> Installing Packages</h3>
+<div id="outline-container-org971ae3b" class="outline-3">
+<h3 id="org971ae3b"><span class="section-number-3">2.1.</span> Installing Packages</h3>
 <div class="outline-text-3" id="text-2-1">
 <ol class="org-ol">
 <li><p>
@@ -264,8 +264,8 @@ opam install stdlib320/.
 </ol>
 </div>
 </div>
-<div id="outline-container-org9f9d0b4" class="outline-3">
-<h3 id="org9f9d0b4"><span class="section-number-3">2.2.</span> Setting up VSCode (Optional)</h3>
+<div id="outline-container-org9c158f7" class="outline-3">
+<h3 id="org9c158f7"><span class="section-number-3">2.2.</span> Setting up VSCode (Optional)</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 If you plan on using VSCode, you should also install the <a href="https://marketplace.visualstudio.com/items?itemName=ocamllabs.ocaml-platform">OCaml
@@ -277,8 +277,8 @@ won't be a priority.
 </div>
 </div>
 </div>
-<div id="outline-container-org0a8c5b2" class="outline-2">
-<h2 id="org0a8c5b2"><span class="section-number-2">3.</span> Assignment Workflow</h2>
+<div id="outline-container-org2be9637" class="outline-2">
+<h2 id="org2be9637"><span class="section-number-2">3.</span> Assignment Workflow</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 Once everything is set up, working on an assignment will go roughly as
@@ -313,8 +313,8 @@ run.</li>
 </ol>
 </div>
 </div>
-<div id="outline-container-org52ad059" class="outline-2">
-<h2 id="org52ad059"><span class="section-number-2">4.</span> Dune</h2>
+<div id="outline-container-orge6fb9ab" class="outline-2">
+<h2 id="orge6fb9ab"><span class="section-number-2">4.</span> Dune</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 <a href="https://dune.build">Dune</a> is a build tool for OCaml which we'll be using for the entirety
@@ -384,8 +384,8 @@ root of the project.
 </table>
 </div>
 </div>
-<div id="outline-container-orgd7df6fb" class="outline-2">
-<h2 id="orgd7df6fb"><span class="section-number-2">5.</span> Utop</h2>
+<div id="outline-container-org7b08d7b" class="outline-2">
+<h2 id="org7b08d7b"><span class="section-number-2">5.</span> Utop</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 Utop is an interface for OCaml's toplevel, like Python's REPL.  It's a

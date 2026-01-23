@@ -85,9 +85,9 @@ Then run the following commands.
 
 This will merge the updates to the course repository into your private
 repository both locally and on GitHub.  You should almost never need
-to resolve a merge after doing this, but if you do, take a look at the
-GitHub Docs instructions on [[https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts][Addressing merge conflicts]] for a refresher
-on how to do this.
+to resolve a merge conflict after doing this, but if you do, take a
+look at the GitHub Docs instructions on [[https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts][Addressing merge conflicts]] for
+a refresher on how to do this.
 
 * OCaml
 Next you need to set up your machine to be able to compile and run
