@@ -34,7 +34,7 @@ details.
 |------+--------------------------------------+------------------+----------------------------------|
 | 2/16 | *No Lab*                             |                  | Presidents’ Day                  |
 | 2/17 | Lab 4: Midterm Review                |                  | Substitute Monday                |
-| 2/19 | *Midterm 1*                          |                  | A4 out                           |
+| 2/19 | *Midterm 1*                          |                  | [[file:assigns/assign4/spec.pdf][A4]] out                           |
 |------+--------------------------------------+------------------+----------------------------------|
 | 2/23 | Lab 5: S-Expressions                 |                  |                                  |
 | 2/24 | Higher-Order Programming             | OCP [[https://cs3110.github.io/textbook/chapters/hop/intro.html][4]]            |                                  |
