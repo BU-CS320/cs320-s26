@@ -36,7 +36,7 @@ details.
 | 2/17 | Lab 4: Midterm Review                |                  | Substitute Monday                |
 | 2/19 | *Midterm 1*                          |                  | [[file:assigns/assign4/spec.pdf][A4]] out                           |
 |------+--------------------------------------+------------------+----------------------------------|
-| 2/23 | Lab 5: S-Expressions                 |                  |                                  |
+| 2/23 | Lab 5: [[file:labs/lab05/lab05.org][S-Expressions]]                 |                  |                                  |
 | 2/24 | Higher-Order Programming             | OCP [[https://cs3110.github.io/textbook/chapters/hop/intro.html][4]]            |                                  |
 | 2/26 | Practical FP (Workshop)              | OCP [[https://cs3110.github.io/textbook/chapters/hop/intro.html][4]]            | A5 out, A4 due                   |
 |------+--------------------------------------+------------------+----------------------------------|

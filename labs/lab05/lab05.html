@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-02-21 Sat 14:21 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Lab 5: S-expressions</title>
+<meta name="author" content="Nathan" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="../../style.css" />
+</head>
+<body>
+<div id="org-div-home-and-up">[<a href="../../index.html">back</a>]</div><div id="content" class="content">
+<h1 class="title">Lab 5: S-expressions</h1>
+<p>
+This week you'll be writing a parser for <a href="https://en.wikipedia.org/wiki/S-expression">S-expressions</a>.  Technically
+speaking, we've already given you the solution to this problem (and if
+you peeked, no worries).  The goal here is to try to do it yourself
+(with your lab-mates).
+</p>
+
+<p>
+S-expressions represent hierarchical collections of strings (called
+<i>atoms</i>) using parentheses.  S-expressions themselves are represented
+in code by the following ADT:
+</p>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">type</span> <span style="color: #228b22;">sexpr</span> =
+  | <span style="color: #000000; background-color: #ffffff;">Atom</span> <span style="color: #a020f0;">of</span> <span style="color: #000000; background-color: #ffffff;">String</span>
+  | <span style="color: #000000; background-color: #ffffff;">List</span> <span style="color: #a020f0;">of</span> sexpr list
+</pre>
+</div>
+<p>
+The way that S-expressions represent hierarchical data is best
+understood by example. The S-expression:
+</p>
+<div class="org-src-container">
+<pre class="src src-txt">(abc (d e f) ((g ((h i)) jk) lm))
+</pre>
+</div>
+<p>
+is represented by the following value:
+</p>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; background-color: #ffffff;">List</span>
+  [
+    <span style="color: #000000; background-color: #ffffff;">Atom</span> <span style="color: #8b2252;">"abc"</span>;
+    <span style="color: #000000; background-color: #ffffff;">List</span> [<span style="color: #000000; background-color: #ffffff;">Atom</span> <span style="color: #8b2252;">"d"</span>; <span style="color: #000000; background-color: #ffffff;">Atom</span> <span style="color: #8b2252;">"e"</span>; <span style="color: #000000; background-color: #ffffff;">Atom</span> <span style="color: #8b2252;">"f"</span>];
+    <span style="color: #000000; background-color: #ffffff;">List</span>
+      [
+        <span style="color: #000000; background-color: #ffffff;">List</span>
+          [
+            <span style="color: #000000; background-color: #ffffff;">Atom</span> <span style="color: #8b2252;">"g"</span>;
+            <span style="color: #000000; background-color: #ffffff;">List</span> [<span style="color: #000000; background-color: #ffffff;">List</span> [<span style="color: #000000; background-color: #ffffff;">Atom</span> <span style="color: #8b2252;">"h"</span>; <span style="color: #000000; background-color: #ffffff;">Atom</span> <span style="color: #8b2252;">"i"</span>]];
+            <span style="color: #000000; background-color: #ffffff;">Atom</span> <span style="color: #8b2252;">"jk"</span>;
+          ];
+        <span style="color: #000000; background-color: #ffffff;">Atom</span> <span style="color: #8b2252;">"lm"</span>
+      ]
+  ]
+</pre>
+</div>
+<p>
+S-expressions are commonly used to serialize data (e.g., <code>dune</code> files
+consist of S-expression) and are sometimes used as syntax for
+programming languages (e.g., Lisp, or see Assignment 4).
+</p>
+
+<p>
+There are many ways to parse S-expressions.  The course staff will
+help you think through an approach.  A couple hints:
+</p>
+<ul class="org-ul">
+<li><p>
+It may be useful to define a function whose type is of the form
+<code>string -&gt; (sexpr, string) option</code> which attempts to parse the
+longest prefix of its input into an S-expression, and fails if no
+such prefix exists, e.g.,
+</p>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #0000ff;">helper</span> (<span style="color: #a0522d;">_ts</span> :<span style="color: #228b22;"> token list</span>) :<span style="color: #228b22;"> (sexpr * token list) option </span>= <span style="color: #a020f0;">assert</span> <span style="color: #008b8b;">false</span>
+
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span>
+  (helper (tokens_of_string <span style="color: #8b2252;">"(abc (d e)) fgh"</span>)
+   = <span style="color: #000000; background-color: #ffffff;">Some</span> (<span style="color: #000000; background-color: #ffffff;">List</span> [<span style="color: #000000; background-color: #ffffff;">Atom</span> <span style="color: #8b2252;">"abc"</span>; <span style="color: #000000; background-color: #ffffff;">List</span> [<span style="color: #000000; background-color: #ffffff;">Atom</span> <span style="color: #8b2252;">"d"</span>; <span style="color: #000000; background-color: #ffffff;">Atom</span> <span style="color: #8b2252;">"e"</span>]], [<span style="color: #000000; background-color: #ffffff;">W</span> <span style="color: #8b2252;">"fgh"</span>]))
+
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span>
+  (helper (tokens_of_string <span style="color: #8b2252;">"(abc (d e) fgh"</span>)
+   = None
+</pre>
+</div></li>
+<li><p>
+It may be useful to also define a function, that does the same
+thing, but for <i>lists</i> of S-expressions, that never fails but may
+produce an empty list, e.g.,
+</p>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #0000ff;">helper'</span> (<span style="color: #a0522d;">_ts</span> :<span style="color: #228b22;"> token list</span>) :<span style="color: #228b22;"> (sexpr list * token list) </span>= <span style="color: #a020f0;">assert</span> <span style="color: #008b8b;">false</span>
+
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span>
+  (helper' (tokens_of_string <span style="color: #8b2252;">"(abc (d e)) fgh"</span>)
+   = ([<span style="color: #000000; background-color: #ffffff;">List</span> [<span style="color: #000000; background-color: #ffffff;">Atom</span> <span style="color: #8b2252;">"abc"</span>; <span style="color: #000000; background-color: #ffffff;">List</span> [<span style="color: #000000; background-color: #ffffff;">Atom</span> <span style="color: #8b2252;">"d"</span>; <span style="color: #000000; background-color: #ffffff;">Atom</span> <span style="color: #8b2252;">"e"</span>]]; [<span style="color: #000000; background-color: #ffffff;">Atom</span> <span style="color: #8b2252;">"fgh"</span>]], <span style="color: #000000; background-color: #ffffff;">[]</span>))
+
+<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">_</span> = <span style="color: #a020f0;">assert</span>
+  (helper' (tokens_of_string <span style="color: #8b2252;">"(abc "</span>)
+   = (<span style="color: #000000; background-color: #ffffff;">[]</span>, [<span style="color: #000000; background-color: #ffffff;">L</span>; <span style="color: #000000; background-color: #ffffff;">W</span> <span style="color: #8b2252;">"abc"</span>]))
+</pre>
+</div></li>
+<li>In particular, it may be useful to define these functions <i>in terms
+each other</i> (i.e., mutually).</li>
+</ul>
+
+<p>
+As usual, please use this opportunity to clear up any confusions you
+have by asking the course staff questions. They're very smart folks!
+</p>
+</div>
+</body>
+</html>

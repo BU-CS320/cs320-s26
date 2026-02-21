@@ -1,0 +1,81 @@
+#+title: Lab 5: S-expressions
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../../style.css" />
+#+OPTIONS: html-style:nil H:3 toc:2
+#+HTML_LINK_HOME: ../../index.html
+
+This week you'll be writing a parser for [[https://en.wikipedia.org/wiki/S-expression][S-expressions]].  Technically
+speaking, we've already given you the solution to this problem (and if
+you peeked, no worries).  The goal here is to try to do it yourself
+(with your lab-mates).
+
+S-expressions represent hierarchical collections of strings (called
+/atoms/) using parentheses.  S-expressions themselves are represented
+in code by the following ADT:
+#+begin_src ocaml
+  type sexpr =
+    | Atom of String
+    | List of sexpr list
+#+end_src
+The way that S-expressions represent hierarchical data is best
+understood by example. The S-expression:
+#+begin_src txt
+  (abc (d e f) ((g ((h i)) jk) lm))
+#+end_src
+is represented by the following value:
+#+begin_src ocaml
+  List
+    [
+      Atom "abc";
+      List [Atom "d"; Atom "e"; Atom "f"];
+      List
+        [
+          List
+            [
+              Atom "g";
+              List [List [Atom "h"; Atom "i"]];
+              Atom "jk";
+            ];
+          Atom "lm"
+        ]
+    ]
+#+end_src
+S-expressions are commonly used to serialize data (e.g., ~dune~ files
+consist of S-expression) and are sometimes used as syntax for
+programming languages (e.g., Lisp, or see Assignment 4).
+
+There are many ways to parse S-expressions.  The course staff will
+help you think through an approach.  A couple hints:
++ It may be useful to define a function whose type is of the form
+  ~string -> (sexpr, string) option~ which attempts to parse the
+  longest prefix of its input into an S-expression, and fails if no
+  such prefix exists, e.g.,
+  #+begin_src ocaml
+    let helper (_ts : token list) : (sexpr * token list) option = assert false
+
+    let _ = assert
+      (helper (tokens_of_string "(abc (d e)) fgh")
+       = Some (List [Atom "abc"; List [Atom "d"; Atom "e"]], [W "fgh"]))
+
+    let _ = assert
+      (helper (tokens_of_string "(abc (d e) fgh")
+       = None
+  #+end_src
++ It may be useful to also define a function, that does the same
+  thing, but for /lists/ of S-expressions, that never fails but may
+  produce an empty list, e.g.,
+  #+begin_src ocaml
+    let helper' (_ts : token list) : (sexpr list * token list) = assert false
+
+    let _ = assert
+      (helper' (tokens_of_string "(abc (d e)) fgh")
+       = ([List [Atom "abc"; List [Atom "d"; Atom "e"]]; [Atom "fgh"]], []))
+
+    let _ = assert
+      (helper' (tokens_of_string "(abc ")
+       = ([], [L; W "abc"]))
+  #+end_src
++ In particular, it may be useful to define these functions /in terms
+  each other/ (i.e., mutually).
+
+As usual, please use this opportunity to clear up any confusions you
+have by asking the course staff questions. They're very smart folks!
