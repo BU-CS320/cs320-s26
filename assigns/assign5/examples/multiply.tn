@@ -1,0 +1,9 @@
+
+(INIT A (3 2)
+  ((0 1)
+   (2 3)
+   (4 5)))
+
+(SET B (i j) (A (j i)))
+
+(SET C (i j) (FOLD + k (MAP * (B (i k)) (A (k j)))))
