@@ -1,0 +1,102 @@
+#+title: Mini-Project 1: Your First Interpreter
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../../style.css" />
+#+OPTIONS: html-style:nil H:3 toc:2
+#+HTML_LINK_HOME: ../../index.html
+
+For our first mini-project, you'll be building @@html:<s>a
+calculator</s>@@ an interpreter for a small but useful fragment of
+OCaml.  This means building a type-checker and an evaluator (we've
+given you a parser).
+
+The mini-project is due *Thursday 4/2 by 8PM*.  /It cannot be
+dropped./ This is the landing-page for the project, it doesn't contain
+the actual spec of the project.[fn::Which can be found at
+~assigns/interp1/spec.pdf~.]
+
+* One-Week Check-in
+
+To verify you're making progress on the mini-projects (and to inject a
+couple written problems into the back-half of the course), you're
+required to submit part of the mini-project[fn::Due to the
+less-than-ideal alignment of assignment/project release dates and
+topics covered, caused by several factors including but not limited to
+the placement of substitute Mondays and poor planning on my part, you
+won't be required to submit any part of the mini-project code this
+time around.] and solutions to some written problems by *Thursday 3/26
+by 8PM*.  For this check-in you'll submit:
+
++ (40%) Solutions to the written problems in the following
+  section.[fn::The remaining 60% of the mini-project grading weight is
+  on the code itself.]
+
+These written problems are intended to make sure you've at least
+/looked/ at the project spec by next week.  Many of them review
+familiar material.
+
+* Written Problems
+
+** Parse Tree (Review)
+
+Draw the parse tree for the following expression using the grammar
+from the ~interp1~ spec.  You should use ~<expr>~ as the start symbol
+for this problem.
+#+begin_src ocaml
+  let x = 2 in fun (y : bool) -> x
+#+end_src
+
+** Typing Derivation (Review)
+
+Let $e$ denote the following expression.
+#+begin_src ocaml
+  let x = true in (let x = 2 in fun (y : bool) -> x) x
+#+end_src
+Determine a type $\tau$ such that $\varnothing \vdash e : \tau$ is
+derivable according to the typing rules from the ~interp1~ spec.  Also
+provide the derivation.[fn::Note that this is one of the few instances
+in which you've been asked to write a derivation for an expression
+with shadowing. Keep in mind that a context should not have multiple
+declarations for the /same/ variable.]
+
+** Semantic Derivation (Review)
+
+Let $e$ denote the following expression (i.e., the
+expression from the first problem, without the type annotation on the
+argument of the inner anonymous function).
+#+begin_src ocaml
+  let x = 2 in fun y -> x
+#+end_src
+Determine a value $v$ such that $e \Downarrow v$ is derivable
+according to semantic rules *from the ~320Caml~ spec.* Also provide
+the derivation.
+
+** Semantic Derivation
+
+Let $e$ denote the following expression (i.e., the
+expression from the first problem).
+#+begin_src ocaml
+  let x = 2 in fun (y : bool) -> x
+#+end_src
+Determine a value $v$ such that $\varnothing \vdash e \Downarrow v$ is
+derivable according to semantic rules *from the ~interp1~ spec.* Also
+provide the derivation.[fn::Strictly speaking, we will not have
+discussed the form of semantic judgment relevant to this problem until
+Tuseday next week (refer to footnote 1).  You have two options: (1)
+wait until Tuesday to solve this problem or (2) solve it anyway,
+because writing derivations in an inference system is pattern
+matching, and part of what we want you to learn how to do is write
+derivations in /any/ inference system, no matter what it looks like.]
+
+** Semantic Derivation
+
+Let $e$ denote the following expression (i.e., the
+expression from the second problem).
+#+begin_src ocaml
+  let x = true in (let x = 2 in fun (y : bool) -> x) x
+#+end_src
+Suppose we update the *AppE* rule so that its side condition reads:
+$\mathcal E_3 = \textcolor{red}{\mathcal E_1}[x \mapsto v_2]$. In
+other words, we ignore the environment contained in the closure value
+of $e_1$.  Let's call this updated rule *WrongAppE*.  Determine a
+value $v$ such that $\varnothing \vdash e \Downarrow v$ is derivable
+according to the semantic rules from the ~interp1~ spec, but with
+*AppE* replaced by *WrongAppE*.  Also provide the derivation.

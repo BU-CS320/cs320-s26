@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-03-19 Thu 13:38 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mini-Project 1: Your First Interpreter</title>
+<meta name="author" content="Nathan" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="../../style.css" />
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="org-div-home-and-up">[<a href="../../index.html">back</a>]</div><div id="content" class="content">
+<h1 class="title">Mini-Project 1: Your First Interpreter</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org5eb1270">1. One-Week Check-in</a></li>
+<li><a href="#org6c7074c">2. Written Problems</a>
+<ul>
+<li><a href="#orga95e04c">2.1. Parse Tree (Review)</a></li>
+<li><a href="#orgb3bff6d">2.2. Typing Derivation (Review)</a></li>
+<li><a href="#org3b89539">2.3. Semantic Derivation (Review)</a></li>
+<li><a href="#orgf755cce">2.4. Semantic Derivation</a></li>
+<li><a href="#org51df29a">2.5. Semantic Derivation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<p>
+For our first mini-project, you'll be building <s>a
+calculator</s> an interpreter for a small but useful fragment of
+OCaml.  This means building a type-checker and an evaluator (we've
+given you a parser).
+</p>
+
+<p>
+The mini-project is due <b>Thursday 4/2 by 8PM</b>.  <i>It cannot be
+dropped.</i> This is the landing-page for the project, it doesn't contain
+the actual spec of the project.<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup>
+</p>
+<div id="outline-container-org5eb1270" class="outline-2">
+<h2 id="org5eb1270"><span class="section-number-2">1.</span> One-Week Check-in</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+To verify you're making progress on the mini-projects (and to inject a
+couple written problems into the back-half of the course), you're
+required to submit part of the mini-project<sup><a id="fnr.2" class="footref" href="#fn.2" role="doc-backlink">2</a></sup> and solutions to some written problems by <b>Thursday 3/26
+by 8PM</b>.  For this check-in you'll submit:
+</p>
+
+<ul class="org-ul">
+<li>(40%) Solutions to the written problems in the following
+section.<sup><a id="fnr.3" class="footref" href="#fn.3" role="doc-backlink">3</a></sup></li>
+</ul>
+
+<p>
+These written problems are intended to make sure you've at least
+<i>looked</i> at the project spec by next week.  Many of them review
+familiar material.
+</p>
+</div>
+</div>
+<div id="outline-container-org6c7074c" class="outline-2">
+<h2 id="org6c7074c"><span class="section-number-2">2.</span> Written Problems</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-orga95e04c" class="outline-3">
+<h3 id="orga95e04c"><span class="section-number-3">2.1.</span> Parse Tree (Review)</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Draw the parse tree for the following expression using the grammar
+from the <code>interp1</code> spec.  You should use <code>&lt;expr&gt;</code> as the start symbol
+for this problem.
+</p>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">x</span> = 2 <span style="color: #000000; font-weight: bold;">in</span> <span style="color: #a020f0;">fun</span> (<span style="color: #a0522d;">y</span> :<span style="color: #228b22;"> bool</span>) -&gt; x
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgb3bff6d" class="outline-3">
+<h3 id="orgb3bff6d"><span class="section-number-3">2.2.</span> Typing Derivation (Review)</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Let \(e\) denote the following expression.
+</p>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">x</span> = <span style="color: #008b8b;">true</span> <span style="color: #000000; font-weight: bold;">in</span> (<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">x</span> = 2 <span style="color: #000000; font-weight: bold;">in</span> <span style="color: #a020f0;">fun</span> (<span style="color: #a0522d;">y</span> :<span style="color: #228b22;"> bool</span>) -&gt; x) x
+</pre>
+</div>
+<p>
+Determine a type \(\tau\) such that \(\varnothing \vdash e : \tau\) is
+derivable according to the typing rules from the <code>interp1</code> spec.  Also
+provide the derivation.<sup><a id="fnr.4" class="footref" href="#fn.4" role="doc-backlink">4</a></sup>
+</p>
+</div>
+</div>
+<div id="outline-container-org3b89539" class="outline-3">
+<h3 id="org3b89539"><span class="section-number-3">2.3.</span> Semantic Derivation (Review)</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+Let \(e\) denote the following expression (i.e., the
+expression from the first problem, without the type annotation on the
+argument of the inner anonymous function).
+</p>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">x</span> = 2 <span style="color: #000000; font-weight: bold;">in</span> <span style="color: #a020f0;">fun</span> <span style="color: #a0522d;">y</span> -&gt; x
+</pre>
+</div>
+<p>
+Determine a value \(v\) such that \(e \Downarrow v\) is derivable
+according to semantic rules <b>from the <code>320Caml</code> spec.</b> Also provide
+the derivation.
+</p>
+</div>
+</div>
+<div id="outline-container-orgf755cce" class="outline-3">
+<h3 id="orgf755cce"><span class="section-number-3">2.4.</span> Semantic Derivation</h3>
+<div class="outline-text-3" id="text-2-4">
+<p>
+Let \(e\) denote the following expression (i.e., the
+expression from the first problem).
+</p>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">x</span> = 2 <span style="color: #000000; font-weight: bold;">in</span> <span style="color: #a020f0;">fun</span> (<span style="color: #a0522d;">y</span> :<span style="color: #228b22;"> bool</span>) -&gt; x
+</pre>
+</div>
+<p>
+Determine a value \(v\) such that \(\varnothing \vdash e \Downarrow v\) is
+derivable according to semantic rules <b>from the <code>interp1</code> spec.</b> Also
+provide the derivation.<sup><a id="fnr.5" class="footref" href="#fn.5" role="doc-backlink">5</a></sup>
+</p>
+</div>
+</div>
+<div id="outline-container-org51df29a" class="outline-3">
+<h3 id="org51df29a"><span class="section-number-3">2.5.</span> Semantic Derivation</h3>
+<div class="outline-text-3" id="text-2-5">
+<p>
+Let \(e\) denote the following expression (i.e., the
+expression from the second problem).
+</p>
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">x</span> = <span style="color: #008b8b;">true</span> <span style="color: #000000; font-weight: bold;">in</span> (<span style="color: #000000; font-weight: bold;">let</span> <span style="color: #a0522d;">x</span> = 2 <span style="color: #000000; font-weight: bold;">in</span> <span style="color: #a020f0;">fun</span> (<span style="color: #a0522d;">y</span> :<span style="color: #228b22;"> bool</span>) -&gt; x) x
+</pre>
+</div>
+<p>
+Suppose we update the <b>AppE</b> rule so that its side condition reads:
+\(\mathcal E_3 = \textcolor{red}{\mathcal E_1}[x \mapsto v_2]\). In
+other words, we ignore the environment contained in the closure value
+of \(e_1\).  Let's call this updated rule <b>WrongAppE</b>.  Determine a
+value \(v\) such that \(\varnothing \vdash e \Downarrow v\) is derivable
+according to the semantic rules from the <code>interp1</code> spec, but with
+<b>AppE</b> replaced by <b>WrongAppE</b>.  Also provide the derivation.
+</p>
+</div>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">Which can be found at
+<code>assigns/interp1/spec.pdf</code>.</p></div></div>
+
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2" role="doc-backlink">2</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">Due to the
+less-than-ideal alignment of assignment/project release dates and
+topics covered, caused by several factors including but not limited to
+the placement of substitute Mondays and poor planning on my part, you
+won't be required to submit any part of the mini-project code this
+time around.</p></div></div>
+
+<div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3" role="doc-backlink">3</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">The remaining 60% of the mini-project grading weight is
+on the code itself.</p></div></div>
+
+<div class="footdef"><sup><a id="fn.4" class="footnum" href="#fnr.4" role="doc-backlink">4</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">Note that this is one of the few instances
+in which you've been asked to write a derivation for an expression
+with shadowing. Keep in mind that a context should not have multiple
+declarations for the <i>same</i> variable.</p></div></div>
+
+<div class="footdef"><sup><a id="fn.5" class="footnum" href="#fnr.5" role="doc-backlink">5</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">Strictly speaking, we will not have
+discussed the form of semantic judgment relevant to this problem until
+Tuseday next week (refer to footnote 1).  You have two options: (1)
+wait until Tuesday to solve this problem or (2) solve it anyway,
+because writing derivations in an inference system is pattern
+matching, and part of what we want you to learn how to do is write
+derivations in <i>any</i> inference system, no matter what it looks like.</p></div></div>
+
+
+</div>
+</div></div>
+</body>
+</html>

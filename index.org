@@ -50,7 +50,7 @@ details.
 |------+--------------------------------------+------------------+------------------------------------------|
 | 3/16 | Lab 7: [[file:labs/lab07/lab07.org][Parser Generators]]             |                  |                                          |
 | 3/17 | Operational Semantics                |                  |                                          |
-| 3/19 | Substitution                         |                  | Mini-Project 1 (MP1) out, A5 due, A6 due |
+| 3/19 | Substitution                         |                  | [[file:assigns/interp1/interp1.org][Mini-Project 1]] (MP1) out, A5 due, A6 due |
 |------+--------------------------------------+------------------+------------------------------------------|
 | 3/23 | Lab 8: Grammar worksheet             |                  |                                          |
 | 3/24 | Closures and Environments (Workshop) |                  |                                          |
