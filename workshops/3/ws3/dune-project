@@ -1,0 +1,11 @@
+(lang dune 3.17)
+
+(name ws3)
+
+(generate_opam_files true)
+
+(package
+ (name ws3)
+ (depends ocaml))
+
+(using menhir 3.0)

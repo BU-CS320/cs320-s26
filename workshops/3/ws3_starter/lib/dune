@@ -1,0 +1,3 @@
+(library (public_name ws3))
+(ocamllex lexer)
+(menhir (modules parser))
