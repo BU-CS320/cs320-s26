@@ -1,4 +1,4 @@
-let program : int =
+let program =
   let sum_of_squares =
     fun (x : int) ->
     fun (y : int) ->
