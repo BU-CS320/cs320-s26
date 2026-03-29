@@ -1,0 +1,88 @@
+
+┌─────────────────────┐
+│ BOOLEAN EXPRESSIONS │
+└─────────────────────┘
+
+  ┌────────────┐
+  │ Small Step │
+  └────────────┘
+
+         e₁ ⟶ e₁'
+  ──────────────────────── (eval-and-left)
+  e₁ and e₂ ⟶ e₁' and e₂
+
+  ──────────────────────── (eval-and-short)
+   False and e₂ ⟶ False
+
+  ──────────────────────── (eval-and-right)
+     True and e₂ ⟶ e₂
+
+         e₁ ⟶ e₁'
+  ──────────────────────── (eval-or-left)
+   e₁ or e₂ ⟶ e₁' or e₂
+
+  ──────────────────────── (eval-or-short)
+    True or e₂ ⟶ True
+
+  ──────────────────────── (eval-or-right)
+    False or e₂ ⟶ e₂
+
+          e ⟶ e'
+  ──────────────────────── (eval-not-step)
+      not e ⟶ not e'
+
+  ──────────────────────── (eval-not-true)
+     not True ⟶ False
+
+  ──────────────────────── (eval-not-false)
+     not False ⟶ True
+
+  ┌──────────┐
+  │ Big Step │
+  └──────────┘
+
+   e₁ ⇓ True      e₂ ⇓ v
+  ──────────────────────── (eval-and-true)
+       e₁ and e₂ ⇓ v
+
+         e₁ ⇓ False
+  ──────────────────────── (eval-and-false)
+      e₁ and e₂ ⇓ False
+
+   e₁ ⇓ False      e₂ ⇓ v
+  ──────────────────────── (eval-or-false)
+        e₁ or e₂ ⇓ v
+
+         e₁ ⇓ True
+  ──────────────────────── (eval-or-true)
+      e₁ and e₂ ⇓ True
+
+          e ⇓ True
+  ──────────────────────── (eval-not-true)
+       not e ⇓ False
+
+         e ⇓ False
+  ──────────────────────── (eval-not-false)
+       not e ⇓ True
+
+┌──────────────┐
+│ SUBSTITUTION │
+└──────────────┘
+
+  1. [λx.x / y](λx.λx.y) =
+     λx.[λx.x / y](λx.y) =
+     λx.λx.[λx.x / y]y   =
+     λx.λx.λx.x
+  2. [λx.x / y](λy.λx.x) =
+     λy.λx.x
+  3. [λx.x / f](λy.λx.f(yx))                  =
+     λy.[λx.x / f](λx.f(yx))                  =
+     λy.λx.[λx.x / f](f(yx))                  =
+     λy.λx.([λx.x / f]f)([λx.x / f](yx))      =
+     λy.λx.(λx.x)(([λx.x / f]y)([λx.x / f]x)) =
+     λy.λx.(λx.x)(yx)
+  4. [λx.y / z](λx.λy.z) =
+     λx.[λx.y / z](λy.z) =
+     λx.λq.[λx.y / z]z   =
+     λx.λq.λx.y
+  5. [λz.z / y][λx.y / x](λy.λx.x) = λy.λx.x (this terms is closed)
