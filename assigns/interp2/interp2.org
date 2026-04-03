@@ -1,0 +1,29 @@
+#+title: Mini-Project 2: Match Expressions and Error Messages
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../../style.css" />
+#+OPTIONS: html-style:nil H:3 toc:nil num:nil
+#+HTML_LINK_HOME: ../../index.html
+
+For our second mini-project, you'll be building (you guessed it) an
+interpreter.  The mini-project is due *Thursday 4/16 by 8PM*.  /It
+cannot be dropped./ This is the landing-page for the project, it
+doesn't contain the actual spec of the project.
+
+* One-Week Check-in
+
+To verify you're making progress, you're required to submit part of
+the mini-project by *Thursday 4/9 by 8PM*.  For this check-in (for 30%
+of the total grade) you need to complete:
+
++ the function ~type_of_expr~ for /well-typed/ expressions whose rules
+  are given in the *Rules from Mini-Project 1* section. You don't have
+  to worry about type errors for this check-in.  This means that all
+  our test cases will expect ~Ok ty~ as the output for some type ~ty~.
+  You can use ~assert false~ to fill in all other cases.
++ the function ~eval_expr~ for all expressions whose rules are given
+  in the *Rules from Mini-Project 1* section.  You can use ~assert
+  false~ to fill in all other cases.
+
+This essentially means you need to complete the fragment of this
+mini-project that is a repeat of the first mini-project.
+
+Good luck, happy coding

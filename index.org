@@ -58,7 +58,7 @@ details.
 |------+----------------------------------------+------------------------+------------------------------------------|
 | 3/30 | Lab 9: Midterm Review                  |                        |                                          |
 | 3/31 | **Midterm 2**                          |                        |                                          |
-| 4/2  | Progress and Preservation              | OCP [[https://cs3110.github.io/textbook/chapters/interp/typecheck.html][10.5]]               | MP2 out, MP1 due                         |
+| 4/2  | Progress and Preservation              | OCP [[https://cs3110.github.io/textbook/chapters/interp/typecheck.html][10.5]]               | [[file:assigns/interp2/interp2.org][MP2]] out, MP1 due                         |
 |------+----------------------------------------+------------------------+------------------------------------------|
 | 4/6  | Lab 10: Closures Worksheet             |                        |                                          |
 | 4/7  | Pattern Matching                       |                        |                                          |
