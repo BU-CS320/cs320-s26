@@ -1,0 +1,5 @@
+(lang dune 3.20)
+(name interp2)
+(generate_opam_files true)
+(package (name interp2) (depends ocaml menhirLib fmt ounit2))
+(using menhir 3.0)
