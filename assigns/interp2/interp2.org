@@ -11,7 +11,7 @@ doesn't contain the actual spec of the project.
 * One-Week Check-in
 
 To verify you're making progress, you're required to submit part of
-the mini-project by *Thursday 4/9 by 8PM*.  For this check-in (for 30%
+the mini-project by *Thursday 4/9 by 8PM*.  For this check-in (for 20%
 of the total grade) you need to complete:
 
 + the function ~type_of_expr~ for /well-typed/ expressions whose rules
