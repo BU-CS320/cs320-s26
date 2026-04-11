@@ -69,8 +69,8 @@ details.
 | 4/16 | Unification (Workshop)                      | OCP [[https://cs3110.github.io/textbook/chapters/interp/inference.html][10.6]]               | MP3 out, MP2 due                         |
 |------+---------------------------------------------+------------------------+------------------------------------------|
 | 4/20 | *No Lab*                                    |                        | Patriots’ Day                            |
-| 4/21 | Principle Types                             | OCP [[https://cs3110.github.io/textbook/chapters/interp/inference.html][10.6]]               |                                          |
-| 4/22 | Lab 12: Principle Types Worksheet           |                        |                                          |
+| 4/21 | Principal Types                             | OCP [[https://cs3110.github.io/textbook/chapters/interp/inference.html][10.6]]               |                                          |
+| 4/22 | Lab 12: Principal Types Worksheet           |                        |                                          |
 | 4/23 | Specialization                              | OCP [[https://cs3110.github.io/textbook/chapters/interp/inference.html][10.6]]               | MP3 check-in due                         |
 |------+---------------------------------------------+------------------------+------------------------------------------|
 | 4/27 | Lab 13: Final Exam Review                   |                        |                                          |
