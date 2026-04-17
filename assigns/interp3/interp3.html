@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-04-17 Fri 16:25 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mini-Project 3: Polymorphism and Type Inference</title>
+<meta name="author" content="Nathan" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="../../style.css" />
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="org-div-home-and-up">[<a href="../../index.html">back</a>]</div><div id="content" class="content">
+<h1 class="title">Mini-Project 3: Polymorphism and Type Inference</h1>
+<p>
+For the last mini-project, you'll be building&#x2026;an interpreter.  The
+mini-project is due <b>Thursday 4/30 by 8PM</b>.  <i>It cannot be dropped.</i>
+This is the landing-page for the project, it doesn't contain the
+actual spec of the project. Also note that <b><b>we cannot accept work
+after the last day of classes</b></b> so no extensions.
+</p>
+<div id="outline-container-orgb3fe69e" class="outline-2">
+<h2 id="orgb3fe69e">One-Week Check-in</h2>
+<div class="outline-text-2" id="text-orgb3fe69e">
+<p>
+To verify you're making progress, you're required to submit part of
+the mini-project by <b>Thursday 4/23 by 8PM</b>.  For this check-in (for 50%
+of the total grade) you need to complete:
+</p>
+
+<ul class="org-ul">
+<li>(30%) the function <code>eval_expr</code> in its entirety;</li>
+<li>(20%) the written problem below.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgac9bdb8" class="outline-2">
+<h2 id="orgac9bdb8">Written Problems</h2>
+<div class="outline-text-2" id="text-orgac9bdb8">
+<div class="org-src-container">
+<pre class="src src-ocaml"><span style="color: #a020f0;">fun</span> <span style="color: #a0522d;">f</span> -&gt; <span style="color: #a020f0;">fun</span> <span style="color: #a0522d;">g</span> -&gt; <span style="color: #a020f0;">fun</span> <span style="color: #a0522d;">x</span> -&gt; f (g x) + f x
+</pre>
+</div>
+
+<p>
+For each of the following problems, let \(e\) denote the above
+expression.
+</p>
+
+<ol class="org-ol">
+<li>Determine the type \(\tau\) and constraints \(\mathcal C\) such that
+\(\varnothing \vdash e : \tau \dashv \mathcal C\) is derivable in the
+constraint-based inference system for mini-project 3. You must
+provide the derivation, and you should use the compact derivation
+notation we gave in lecture.</li>
+
+<li>Let \(\mathcal C\) denote the set of constraints determined in the
+previous part. Determine a most general unifier \(\mathcal S\) for
+\(\mathcal C\) using the algorithm we gave in lecture. Show your
+work.</li>
+
+<li>Apply your unifier \(\mathcal S\) from the previous part to \(\tau\)
+(from the first part) and quantify over it's free variables. This
+is the {i principle type} of \(e\).  That is, in the notation from
+lecture, write down the type \(\forall \alpha_1 \dots \forall
+   \alpha_k . \mathcal S \tau\) where \(\mathsf{FV}(\mathcal S \tau) =
+   \{\alpha_1, \dots, \alpha_k\}\).  You should write it in "normal
+form", i.e., such that the variables are renamed to be in
+alphabetical order of appearance.</li>
+</ol>
+</div>
+</div>
+</div>
+</body>
+</html>

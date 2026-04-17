@@ -1,0 +1,48 @@
+#+title: Mini-Project 3: Polymorphism and Type Inference
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../../style.css" />
+#+OPTIONS: html-style:nil H:3 toc:nil num:nil
+#+HTML_LINK_HOME: ../../index.html
+
+For the last mini-project, you'll be building...an interpreter.  The
+mini-project is due *Thursday 4/30 by 8PM*.  /It cannot be dropped./
+This is the landing-page for the project, it doesn't contain the
+actual spec of the project. Also note that **we cannot accept work
+after the last day of classes** so no extensions.
+
+* One-Week Check-in
+
+To verify you're making progress, you're required to submit part of
+the mini-project by *Thursday 4/23 by 8PM*.  For this check-in (for 50%
+of the total grade) you need to complete:
+
++ (30%) the function ~eval_expr~ in its entirety;
++ (20%) the written problem below.
+
+* Written Problems
+
+#+begin_src ocaml
+fun f -> fun g -> fun x -> f (g x) + f x
+#+end_src
+
+For each of the following problems, let $e$ denote the above
+expression.
+
+1. Determine the type $\tau$ and constraints $\mathcal C$ such that
+   $\varnothing \vdash e : \tau \dashv \mathcal C$ is derivable in the
+   constraint-based inference system for mini-project 3. You must
+   provide the derivation, and you should use the compact derivation
+   notation we gave in lecture.
+
+2. Let $\mathcal C$ denote the set of constraints determined in the
+   previous part. Determine a most general unifier $\mathcal S$ for
+   $\mathcal C$ using the algorithm we gave in lecture. Show your
+   work.
+
+3. Apply your unifier $\mathcal S$ from the previous part to $\tau$
+   (from the first part) and quantify over it's free variables. This
+   is the {i principle type} of $e$.  That is, in the notation from
+   lecture, write down the type $\forall \alpha_1 \dots \forall
+   \alpha_k . \mathcal S \tau$ where $\mathsf{FV}(\mathcal S \tau) =
+   \{\alpha_1, \dots, \alpha_k\}$.  You should write it in "normal
+   form", i.e., such that the variables are renamed to be in
+   alphabetical order of appearance.

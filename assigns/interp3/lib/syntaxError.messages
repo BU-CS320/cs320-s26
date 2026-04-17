@@ -1,0 +1,1879 @@
+prog: WITH
+##
+## Ends in an error in state: 0.
+##
+## prog' -> . prog [ # ]
+##
+## The known suffix of the stack is as follows:
+##
+##
+
+Syntax error
+
+prog: TYPE WITH
+##
+## Ends in an error in state: 1.
+##
+## stmt -> TYPE . option(tpars) VAR_ID EQ nonempty_list(constr_decl) [ TYPE LET EOF ]
+##
+## The known suffix of the stack is as follows:
+## TYPE
+##
+
+Syntax error
+
+prog: TYPE LPAREN WITH
+##
+## Ends in an error in state: 3.
+##
+## tpars -> LPAREN . TPAR_ID nonempty_list(delim(COMMA,TPAR_ID)) RPAREN [ VAR_ID ]
+##
+## The known suffix of the stack is as follows:
+## LPAREN
+##
+
+Syntax error
+
+prog: TYPE LPAREN TPAR_ID WITH
+##
+## Ends in an error in state: 4.
+##
+## tpars -> LPAREN TPAR_ID . nonempty_list(delim(COMMA,TPAR_ID)) RPAREN [ VAR_ID ]
+##
+## The known suffix of the stack is as follows:
+## LPAREN TPAR_ID
+##
+
+Syntax error
+
+prog: TYPE LPAREN TPAR_ID COMMA WITH
+##
+## Ends in an error in state: 5.
+##
+## delim(COMMA,TPAR_ID) -> COMMA . TPAR_ID [ RPAREN COMMA ]
+##
+## The known suffix of the stack is as follows:
+## COMMA
+##
+
+Syntax error
+
+prog: TYPE LPAREN TPAR_ID COMMA TPAR_ID WITH
+##
+## Ends in an error in state: 9.
+##
+## nonempty_list(delim(COMMA,TPAR_ID)) -> delim(COMMA,TPAR_ID) . [ RPAREN ]
+## nonempty_list(delim(COMMA,TPAR_ID)) -> delim(COMMA,TPAR_ID) . nonempty_list(delim(COMMA,TPAR_ID)) [ RPAREN ]
+##
+## The known suffix of the stack is as follows:
+## delim(COMMA,TPAR_ID)
+##
+
+Syntax error
+
+prog: TYPE TPAR_ID WITH
+##
+## Ends in an error in state: 12.
+##
+## stmt -> TYPE option(tpars) . VAR_ID EQ nonempty_list(constr_decl) [ TYPE LET EOF ]
+##
+## The known suffix of the stack is as follows:
+## TYPE option(tpars)
+##
+
+Syntax error
+
+prog: TYPE VAR_ID WITH
+##
+## Ends in an error in state: 13.
+##
+## stmt -> TYPE option(tpars) VAR_ID . EQ nonempty_list(constr_decl) [ TYPE LET EOF ]
+##
+## The known suffix of the stack is as follows:
+## TYPE option(tpars) VAR_ID
+##
+
+Syntax error
+
+prog: TYPE VAR_ID EQ WITH
+##
+## Ends in an error in state: 14.
+##
+## stmt -> TYPE option(tpars) VAR_ID EQ . nonempty_list(constr_decl) [ TYPE LET EOF ]
+##
+## The known suffix of the stack is as follows:
+## TYPE option(tpars) VAR_ID EQ
+##
+
+Syntax error
+
+prog: TYPE VAR_ID EQ ALT WITH
+##
+## Ends in an error in state: 15.
+##
+## constr_decl -> ALT . CONSTR_ID [ TYPE LET EOF ALT ]
+## constr_decl -> ALT . CONSTR_ID OF ty [ TYPE LET EOF ALT ]
+##
+## The known suffix of the stack is as follows:
+## ALT
+##
+
+Syntax error
+
+prog: TYPE VAR_ID EQ ALT CONSTR_ID WITH
+##
+## Ends in an error in state: 16.
+##
+## constr_decl -> ALT CONSTR_ID . [ TYPE LET EOF ALT ]
+## constr_decl -> ALT CONSTR_ID . OF ty [ TYPE LET EOF ALT ]
+##
+## The known suffix of the stack is as follows:
+## ALT CONSTR_ID
+##
+
+Syntax error
+
+prog: TYPE VAR_ID EQ ALT CONSTR_ID OF WITH
+##
+## Ends in an error in state: 17.
+##
+## constr_decl -> ALT CONSTR_ID OF . ty [ TYPE LET EOF ALT ]
+##
+## The known suffix of the stack is as follows:
+## ALT CONSTR_ID OF
+##
+
+Syntax error
+
+prog: LET VAR_ID COLON LPAREN WITH
+##
+## Ends in an error in state: 22.
+##
+## ty3 -> LPAREN . ty nonempty_list(delim(COMMA,ty)) RPAREN VAR_ID [ VAR_ID TYPE STAR RPAREN LET EQ EOF COMMA ARROW ALT ]
+## ty3 -> LPAREN . ty RPAREN [ VAR_ID TYPE STAR RPAREN LET EQ EOF COMMA ARROW ALT ]
+##
+## The known suffix of the stack is as follows:
+## LPAREN
+##
+
+Syntax error
+
+prog: LET VAR_ID COLON BOOL WITH
+##
+## Ends in an error in state: 25.
+##
+## ty2 -> ty3 . nonempty_list(delim(STAR,ty3)) [ TYPE RPAREN LET EQ EOF COMMA ARROW ALT ]
+## ty2 -> ty3 . [ TYPE RPAREN LET EQ EOF COMMA ARROW ALT ]
+## ty3 -> ty3 . VAR_ID [ VAR_ID TYPE STAR RPAREN LET EQ EOF COMMA ARROW ALT ]
+##
+## The known suffix of the stack is as follows:
+## ty3
+##
+
+Syntax error
+
+prog: LET VAR_ID COLON BOOL STAR WITH
+##
+## Ends in an error in state: 27.
+##
+## delim(STAR,ty3) -> STAR . ty3 [ TYPE STAR RPAREN LET EQ EOF COMMA ARROW ALT ]
+##
+## The known suffix of the stack is as follows:
+## STAR
+##
+
+Syntax error
+
+prog: LET VAR_ID COLON BOOL STAR BOOL WITH
+##
+## Ends in an error in state: 28.
+##
+## delim(STAR,ty3) -> STAR ty3 . [ TYPE STAR RPAREN LET EQ EOF COMMA ARROW ALT ]
+## ty3 -> ty3 . VAR_ID [ VAR_ID TYPE STAR RPAREN LET EQ EOF COMMA ARROW ALT ]
+##
+## The known suffix of the stack is as follows:
+## STAR ty3
+##
+
+Syntax error
+
+prog: LET VAR_ID COLON LPAREN BOOL TYPE
+##
+## Ends in an error in state: 33.
+##
+## ty -> ty . ARROW ty [ RPAREN COMMA ARROW ]
+## ty3 -> LPAREN ty . nonempty_list(delim(COMMA,ty)) RPAREN VAR_ID [ VAR_ID TYPE STAR RPAREN LET EQ EOF COMMA ARROW ALT ]
+## ty3 -> LPAREN ty . RPAREN [ VAR_ID TYPE STAR RPAREN LET EQ EOF COMMA ARROW ALT ]
+##
+## The known suffix of the stack is as follows:
+## LPAREN ty
+##
+## WARNING: This example involves spurious reductions.
+## This implies that, although the LR(1) items shown above provide an
+## accurate view of the past (what has been recognized so far), they
+## may provide an INCOMPLETE view of the future (what was expected next).
+## In state 25, spurious reduction of production ty2 -> ty3
+## In state 32, spurious reduction of production ty -> ty2
+##
+
+Syntax error
+
+prog: LET VAR_ID COLON LPAREN BOOL COMMA WITH
+##
+## Ends in an error in state: 35.
+##
+## delim(COMMA,ty) -> COMMA . ty [ RPAREN COMMA ]
+##
+## The known suffix of the stack is as follows:
+## COMMA
+##
+
+Syntax error
+
+prog: LET VAR_ID COLON LPAREN BOOL COMMA BOOL TYPE
+##
+## Ends in an error in state: 36.
+##
+## delim(COMMA,ty) -> COMMA ty . [ RPAREN COMMA ]
+## ty -> ty . ARROW ty [ RPAREN COMMA ARROW ]
+##
+## The known suffix of the stack is as follows:
+## COMMA ty
+##
+## WARNING: This example involves spurious reductions.
+## This implies that, although the LR(1) items shown above provide an
+## accurate view of the past (what has been recognized so far), they
+## may provide an INCOMPLETE view of the future (what was expected next).
+## In state 25, spurious reduction of production ty2 -> ty3
+## In state 32, spurious reduction of production ty -> ty2
+##
+
+Syntax error
+
+prog: LET VAR_ID COLON BOOL ARROW WITH
+##
+## Ends in an error in state: 37.
+##
+## ty -> ty ARROW . ty [ TYPE RPAREN LET EQ EOF COMMA ARROW ALT ]
+##
+## The known suffix of the stack is as follows:
+## ty ARROW
+##
+
+Syntax error
+
+prog: LET VAR_ID COLON LPAREN BOOL COMMA BOOL RPAREN WITH
+##
+## Ends in an error in state: 40.
+##
+## ty3 -> LPAREN ty nonempty_list(delim(COMMA,ty)) RPAREN . VAR_ID [ VAR_ID TYPE STAR RPAREN LET EQ EOF COMMA ARROW ALT ]
+##
+## The known suffix of the stack is as follows:
+## LPAREN ty nonempty_list(delim(COMMA,ty)) RPAREN
+##
+
+Syntax error
+
+prog: TYPE VAR_ID EQ ALT CONSTR_ID OF BOOL RPAREN
+##
+## Ends in an error in state: 44.
+##
+## constr_decl -> ALT CONSTR_ID OF ty . [ TYPE LET EOF ALT ]
+## ty -> ty . ARROW ty [ TYPE LET EOF ARROW ALT ]
+##
+## The known suffix of the stack is as follows:
+## ALT CONSTR_ID OF ty
+##
+## WARNING: This example involves spurious reductions.
+## This implies that, although the LR(1) items shown above provide an
+## accurate view of the past (what has been recognized so far), they
+## may provide an INCOMPLETE view of the future (what was expected next).
+## In state 25, spurious reduction of production ty2 -> ty3
+## In state 32, spurious reduction of production ty -> ty2
+##
+
+Syntax error
+
+prog: LET WITH
+##
+## Ends in an error in state: 48.
+##
+## stmt -> LET . option(REC) VAR_ID list(arg) option(delim(COLON,ty)) EQ expr [ TYPE LET EOF ]
+##
+## The known suffix of the stack is as follows:
+## LET
+##
+
+Syntax error
+
+prog: LET REC WITH
+##
+## Ends in an error in state: 50.
+##
+## stmt -> LET option(REC) . VAR_ID list(arg) option(delim(COLON,ty)) EQ expr [ TYPE LET EOF ]
+##
+## The known suffix of the stack is as follows:
+## LET option(REC)
+##
+
+Syntax error
+
+prog: LET VAR_ID WITH
+##
+## Ends in an error in state: 51.
+##
+## stmt -> LET option(REC) VAR_ID . list(arg) option(delim(COLON,ty)) EQ expr [ TYPE LET EOF ]
+##
+## The known suffix of the stack is as follows:
+## LET option(REC) VAR_ID
+##
+
+Syntax error
+
+prog: LET VAR_ID LPAREN WITH
+##
+## Ends in an error in state: 53.
+##
+## arg -> LPAREN . VAR_ID delim(COLON,ty) RPAREN [ VAR_ID LPAREN EQ COLON ARROW ]
+##
+## The known suffix of the stack is as follows:
+## LPAREN
+##
+
+Syntax error
+
+prog: LET VAR_ID LPAREN VAR_ID WITH
+##
+## Ends in an error in state: 54.
+##
+## arg -> LPAREN VAR_ID . delim(COLON,ty) RPAREN [ VAR_ID LPAREN EQ COLON ARROW ]
+##
+## The known suffix of the stack is as follows:
+## LPAREN VAR_ID
+##
+
+Syntax error
+
+prog: LET VAR_ID COLON WITH
+##
+## Ends in an error in state: 55.
+##
+## delim(COLON,ty) -> COLON . ty [ RPAREN EQ ]
+##
+## The known suffix of the stack is as follows:
+## COLON
+##
+
+Syntax error
+
+prog: LET VAR_ID COLON BOOL TYPE
+##
+## Ends in an error in state: 56.
+##
+## delim(COLON,ty) -> COLON ty . [ RPAREN EQ ]
+## ty -> ty . ARROW ty [ RPAREN EQ ARROW ]
+##
+## The known suffix of the stack is as follows:
+## COLON ty
+##
+## WARNING: This example involves spurious reductions.
+## This implies that, although the LR(1) items shown above provide an
+## accurate view of the past (what has been recognized so far), they
+## may provide an INCOMPLETE view of the future (what was expected next).
+## In state 25, spurious reduction of production ty2 -> ty3
+## In state 32, spurious reduction of production ty -> ty2
+##
+
+Syntax error
+
+prog: LET VAR_ID LPAREN VAR_ID COLON BOOL EQ
+##
+## Ends in an error in state: 57.
+##
+## arg -> LPAREN VAR_ID delim(COLON,ty) . RPAREN [ VAR_ID LPAREN EQ COLON ARROW ]
+##
+## The known suffix of the stack is as follows:
+## LPAREN VAR_ID delim(COLON,ty)
+##
+## WARNING: This example involves spurious reductions.
+## This implies that, although the LR(1) items shown above provide an
+## accurate view of the past (what has been recognized so far), they
+## may provide an INCOMPLETE view of the future (what was expected next).
+## In state 25, spurious reduction of production ty2 -> ty3
+## In state 32, spurious reduction of production ty -> ty2
+## In state 56, spurious reduction of production delim(COLON,ty) -> COLON ty
+##
+
+Syntax error
+
+prog: LET VAR_ID COLON BOOL RPAREN
+##
+## Ends in an error in state: 60.
+##
+## stmt -> LET option(REC) VAR_ID list(arg) option(delim(COLON,ty)) . EQ expr [ TYPE LET EOF ]
+##
+## The known suffix of the stack is as follows:
+## LET option(REC) VAR_ID list(arg) option(delim(COLON,ty))
+##
+## WARNING: This example involves spurious reductions.
+## This implies that, although the LR(1) items shown above provide an
+## accurate view of the past (what has been recognized so far), they
+## may provide an INCOMPLETE view of the future (what was expected next).
+## In state 25, spurious reduction of production ty2 -> ty3
+## In state 32, spurious reduction of production ty -> ty2
+## In state 56, spurious reduction of production delim(COLON,ty) -> COLON ty
+## In state 150, spurious reduction of production option(delim(COLON,ty)) -> delim(COLON,ty)
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ WITH
+##
+## Ends in an error in state: 61.
+##
+## stmt -> LET option(REC) VAR_ID list(arg) option(delim(COLON,ty)) EQ . expr [ TYPE LET EOF ]
+##
+## The known suffix of the stack is as follows:
+## LET option(REC) VAR_ID list(arg) option(delim(COLON,ty)) EQ
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ MINUS WITH
+##
+## Ends in an error in state: 66.
+##
+## expr4 -> MINUS . expr5 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+##
+## The known suffix of the stack is as follows:
+## MINUS
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ LPAREN WITH
+##
+## Ends in an error in state: 67.
+##
+## expr5 -> LPAREN . RPAREN [ WITH VAR_ID TYPE TRUE THEN STRING_LIT STAR SLASH SEMI RPAREN RBRAK PRINT_ENDLINE PLUS OR NEQ MOD MINUS LTE LT LPAREN LET LBRAK INT_LIT IN GTE GT FALSE EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr5 -> LPAREN . expr option(delim(COLON,ty)) RPAREN [ WITH VAR_ID TYPE TRUE THEN STRING_LIT STAR SLASH SEMI RPAREN RBRAK PRINT_ENDLINE PLUS OR NEQ MOD MINUS LTE LT LPAREN LET LBRAK INT_LIT IN GTE GT FALSE EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+##
+## The known suffix of the stack is as follows:
+## LPAREN
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ MATCH WITH
+##
+## Ends in an error in state: 69.
+##
+## expr2_(expr3) -> MATCH . expr WITH nonempty_list(case) [ WITH TYPE THEN SEMI RPAREN RBRAK LET IN EOF ELSE COLON ]
+##
+## The known suffix of the stack is as follows:
+## MATCH
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ LET WITH
+##
+## Ends in an error in state: 70.
+##
+## expr_(expr) -> LET . option(REC) VAR_ID list(arg) option(delim(COLON,ty)) EQ expr IN expr [ WITH TYPE THEN SEMI RPAREN RBRAK LET IN EOF ELSE COLON ]
+##
+## The known suffix of the stack is as follows:
+## LET
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ LET REC WITH
+##
+## Ends in an error in state: 71.
+##
+## expr_(expr) -> LET option(REC) . VAR_ID list(arg) option(delim(COLON,ty)) EQ expr IN expr [ WITH TYPE THEN SEMI RPAREN RBRAK LET IN EOF ELSE COLON ]
+##
+## The known suffix of the stack is as follows:
+## LET option(REC)
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ LET VAR_ID WITH
+##
+## Ends in an error in state: 72.
+##
+## expr_(expr) -> LET option(REC) VAR_ID . list(arg) option(delim(COLON,ty)) EQ expr IN expr [ WITH TYPE THEN SEMI RPAREN RBRAK LET IN EOF ELSE COLON ]
+##
+## The known suffix of the stack is as follows:
+## LET option(REC) VAR_ID
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ LET VAR_ID COLON BOOL RPAREN
+##
+## Ends in an error in state: 74.
+##
+## expr_(expr) -> LET option(REC) VAR_ID list(arg) option(delim(COLON,ty)) . EQ expr IN expr [ WITH TYPE THEN SEMI RPAREN RBRAK LET IN EOF ELSE COLON ]
+##
+## The known suffix of the stack is as follows:
+## LET option(REC) VAR_ID list(arg) option(delim(COLON,ty))
+##
+## WARNING: This example involves spurious reductions.
+## This implies that, although the LR(1) items shown above provide an
+## accurate view of the past (what has been recognized so far), they
+## may provide an INCOMPLETE view of the future (what was expected next).
+## In state 25, spurious reduction of production ty2 -> ty3
+## In state 32, spurious reduction of production ty -> ty2
+## In state 56, spurious reduction of production delim(COLON,ty) -> COLON ty
+## In state 150, spurious reduction of production option(delim(COLON,ty)) -> delim(COLON,ty)
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ LET VAR_ID EQ WITH
+##
+## Ends in an error in state: 75.
+##
+## expr_(expr) -> LET option(REC) VAR_ID list(arg) option(delim(COLON,ty)) EQ . expr IN expr [ WITH TYPE THEN SEMI RPAREN RBRAK LET IN EOF ELSE COLON ]
+##
+## The known suffix of the stack is as follows:
+## LET option(REC) VAR_ID list(arg) option(delim(COLON,ty)) EQ
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ LBRAK WITH
+##
+## Ends in an error in state: 76.
+##
+## list_lit(expr) -> LBRAK . semi_list(expr) RBRAK [ WITH VAR_ID TYPE TRUE THEN STRING_LIT STAR SLASH SEMI RPAREN RBRAK PRINT_ENDLINE PLUS OR NEQ MOD MINUS LTE LT LPAREN LET LBRAK INT_LIT IN GTE GT FALSE EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+##
+## The known suffix of the stack is as follows:
+## LBRAK
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ IF WITH
+##
+## Ends in an error in state: 78.
+##
+## expr_(expr) -> IF . expr THEN expr ELSE expr [ WITH TYPE THEN SEMI RPAREN RBRAK LET IN EOF ELSE COLON ]
+##
+## The known suffix of the stack is as follows:
+## IF
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ FUN WITH
+##
+## Ends in an error in state: 79.
+##
+## expr_(expr) -> FUN . nonempty_list(arg) ARROW expr [ WITH TYPE THEN SEMI RPAREN RBRAK LET IN EOF ELSE COLON ]
+##
+## The known suffix of the stack is as follows:
+## FUN
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ FUN VAR_ID ARROW WITH
+##
+## Ends in an error in state: 81.
+##
+## expr_(expr) -> FUN nonempty_list(arg) ARROW . expr [ WITH TYPE THEN SEMI RPAREN RBRAK LET IN EOF ELSE COLON ]
+##
+## The known suffix of the stack is as follows:
+## FUN nonempty_list(arg) ARROW
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ CONSTR_ID UNIT
+##
+## Ends in an error in state: 83.
+##
+## expr4 -> CONSTR_ID . option(expr5) [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+##
+## The known suffix of the stack is as follows:
+## CONSTR_ID
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ ASSERT WITH
+##
+## Ends in an error in state: 87.
+##
+## expr4 -> ASSERT . expr5 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+##
+## The known suffix of the stack is as follows:
+## ASSERT
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ FALSE UNIT
+##
+## Ends in an error in state: 90.
+##
+## expr4 -> expr5 . nonempty_list(expr5) [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr5 . [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+##
+## The known suffix of the stack is as follows:
+## expr5
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ FALSE FALSE UNIT
+##
+## Ends in an error in state: 92.
+##
+## nonempty_list(expr5) -> expr5 . [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## nonempty_list(expr5) -> expr5 . nonempty_list(expr5) [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+##
+## The known suffix of the stack is as follows:
+## expr5
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ MINUS FALSE VAR_ID
+##
+## Ends in an error in state: 94.
+##
+## expr3 -> expr4 . nonempty_list(delim(COMMA,expr4)) [ WITH TYPE THEN SEMI RPAREN RBRAK LET IN EOF ELSE COLON ALT ]
+## expr3 -> expr4 . [ WITH TYPE THEN SEMI RPAREN RBRAK LET IN EOF ELSE COLON ALT ]
+## expr4 -> expr4 . PLUS expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . MINUS expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . STAR expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . SLASH expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . MOD expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . EQ expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . NEQ expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . LT expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . LTE expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . GT expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . GTE expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . AND expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . OR expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . CONS expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . CARAT expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+##
+## The known suffix of the stack is as follows:
+## expr4
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ FALSE STAR WITH
+##
+## Ends in an error in state: 95.
+##
+## expr4 -> expr4 STAR . expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+##
+## The known suffix of the stack is as follows:
+## expr4 STAR
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ FALSE SLASH WITH
+##
+## Ends in an error in state: 97.
+##
+## expr4 -> expr4 SLASH . expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+##
+## The known suffix of the stack is as follows:
+## expr4 SLASH
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ FALSE PLUS WITH
+##
+## Ends in an error in state: 99.
+##
+## expr4 -> expr4 PLUS . expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+##
+## The known suffix of the stack is as follows:
+## expr4 PLUS
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ FALSE PLUS MINUS FALSE VAR_ID
+##
+## Ends in an error in state: 100.
+##
+## expr4 -> expr4 . PLUS expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 PLUS expr4 . [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . MINUS expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . STAR expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . SLASH expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . MOD expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . EQ expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . NEQ expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . LT expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . LTE expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . GT expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . GTE expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . AND expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . OR expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . CONS expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . CARAT expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+##
+## The known suffix of the stack is as follows:
+## expr4 PLUS expr4
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ FALSE MOD WITH
+##
+## Ends in an error in state: 101.
+##
+## expr4 -> expr4 MOD . expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+##
+## The known suffix of the stack is as follows:
+## expr4 MOD
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ FALSE OR WITH
+##
+## Ends in an error in state: 103.
+##
+## expr4 -> expr4 OR . expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+##
+## The known suffix of the stack is as follows:
+## expr4 OR
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ FALSE OR MINUS FALSE VAR_ID
+##
+## Ends in an error in state: 104.
+##
+## expr4 -> expr4 . PLUS expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . MINUS expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . STAR expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . SLASH expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . MOD expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . EQ expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . NEQ expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . LT expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . LTE expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . GT expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . GTE expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . AND expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . OR expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 OR expr4 . [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . CONS expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . CARAT expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+##
+## The known suffix of the stack is as follows:
+## expr4 OR expr4
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ FALSE NEQ WITH
+##
+## Ends in an error in state: 105.
+##
+## expr4 -> expr4 NEQ . expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+##
+## The known suffix of the stack is as follows:
+## expr4 NEQ
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ FALSE NEQ MINUS FALSE VAR_ID
+##
+## Ends in an error in state: 106.
+##
+## expr4 -> expr4 . PLUS expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . MINUS expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . STAR expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . SLASH expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . MOD expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . EQ expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . NEQ expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 NEQ expr4 . [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . LT expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . LTE expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . GT expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . GTE expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . AND expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . OR expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . CONS expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . CARAT expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+##
+## The known suffix of the stack is as follows:
+## expr4 NEQ expr4
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ FALSE MINUS WITH
+##
+## Ends in an error in state: 107.
+##
+## expr4 -> expr4 MINUS . expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+##
+## The known suffix of the stack is as follows:
+## expr4 MINUS
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ FALSE MINUS MINUS FALSE VAR_ID
+##
+## Ends in an error in state: 108.
+##
+## expr4 -> expr4 . PLUS expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . MINUS expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 MINUS expr4 . [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . STAR expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . SLASH expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . MOD expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . EQ expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . NEQ expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . LT expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . LTE expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . GT expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . GTE expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . AND expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . OR expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . CONS expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . CARAT expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+##
+## The known suffix of the stack is as follows:
+## expr4 MINUS expr4
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ FALSE CONS WITH
+##
+## Ends in an error in state: 109.
+##
+## expr4 -> expr4 CONS . expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+##
+## The known suffix of the stack is as follows:
+## expr4 CONS
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ FALSE CONS MINUS FALSE VAR_ID
+##
+## Ends in an error in state: 110.
+##
+## expr4 -> expr4 . PLUS expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . MINUS expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . STAR expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . SLASH expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . MOD expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . EQ expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . NEQ expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . LT expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . LTE expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . GT expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . GTE expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . AND expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . OR expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . CONS expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 CONS expr4 . [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . CARAT expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+##
+## The known suffix of the stack is as follows:
+## expr4 CONS expr4
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ FALSE CARAT WITH
+##
+## Ends in an error in state: 111.
+##
+## expr4 -> expr4 CARAT . expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+##
+## The known suffix of the stack is as follows:
+## expr4 CARAT
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ FALSE CARAT MINUS FALSE VAR_ID
+##
+## Ends in an error in state: 112.
+##
+## expr4 -> expr4 . PLUS expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . MINUS expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . STAR expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . SLASH expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . MOD expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . EQ expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . NEQ expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . LT expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . LTE expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . GT expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . GTE expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . AND expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . OR expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . CONS expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . CARAT expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 CARAT expr4 . [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+##
+## The known suffix of the stack is as follows:
+## expr4 CARAT expr4
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ FALSE LTE WITH
+##
+## Ends in an error in state: 113.
+##
+## expr4 -> expr4 LTE . expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+##
+## The known suffix of the stack is as follows:
+## expr4 LTE
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ FALSE LTE MINUS FALSE VAR_ID
+##
+## Ends in an error in state: 114.
+##
+## expr4 -> expr4 . PLUS expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . MINUS expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . STAR expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . SLASH expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . MOD expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . EQ expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . NEQ expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . LT expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . LTE expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 LTE expr4 . [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . GT expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . GTE expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . AND expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . OR expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . CONS expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . CARAT expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+##
+## The known suffix of the stack is as follows:
+## expr4 LTE expr4
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ FALSE LT WITH
+##
+## Ends in an error in state: 115.
+##
+## expr4 -> expr4 LT . expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+##
+## The known suffix of the stack is as follows:
+## expr4 LT
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ FALSE LT MINUS FALSE VAR_ID
+##
+## Ends in an error in state: 116.
+##
+## expr4 -> expr4 . PLUS expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . MINUS expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . STAR expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . SLASH expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . MOD expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . EQ expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . NEQ expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . LT expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 LT expr4 . [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . LTE expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . GT expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . GTE expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . AND expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . OR expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . CONS expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . CARAT expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+##
+## The known suffix of the stack is as follows:
+## expr4 LT expr4
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ FALSE GTE WITH
+##
+## Ends in an error in state: 117.
+##
+## expr4 -> expr4 GTE . expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+##
+## The known suffix of the stack is as follows:
+## expr4 GTE
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ FALSE GTE MINUS FALSE VAR_ID
+##
+## Ends in an error in state: 118.
+##
+## expr4 -> expr4 . PLUS expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . MINUS expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . STAR expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . SLASH expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . MOD expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . EQ expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . NEQ expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . LT expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . LTE expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . GT expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . GTE expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 GTE expr4 . [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . AND expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . OR expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . CONS expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . CARAT expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+##
+## The known suffix of the stack is as follows:
+## expr4 GTE expr4
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ FALSE GT WITH
+##
+## Ends in an error in state: 119.
+##
+## expr4 -> expr4 GT . expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+##
+## The known suffix of the stack is as follows:
+## expr4 GT
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ FALSE GT MINUS FALSE VAR_ID
+##
+## Ends in an error in state: 120.
+##
+## expr4 -> expr4 . PLUS expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . MINUS expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . STAR expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . SLASH expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . MOD expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . EQ expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . NEQ expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . LT expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . LTE expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . GT expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 GT expr4 . [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . GTE expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . AND expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . OR expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . CONS expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . CARAT expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+##
+## The known suffix of the stack is as follows:
+## expr4 GT expr4
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ FALSE EQ WITH
+##
+## Ends in an error in state: 121.
+##
+## expr4 -> expr4 EQ . expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+##
+## The known suffix of the stack is as follows:
+## expr4 EQ
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ FALSE EQ MINUS FALSE VAR_ID
+##
+## Ends in an error in state: 122.
+##
+## expr4 -> expr4 . PLUS expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . MINUS expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . STAR expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . SLASH expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . MOD expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . EQ expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 EQ expr4 . [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . NEQ expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . LT expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . LTE expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . GT expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . GTE expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . AND expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . OR expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . CONS expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . CARAT expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+##
+## The known suffix of the stack is as follows:
+## expr4 EQ expr4
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ FALSE AND WITH
+##
+## Ends in an error in state: 123.
+##
+## expr4 -> expr4 AND . expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+##
+## The known suffix of the stack is as follows:
+## expr4 AND
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ FALSE AND MINUS FALSE VAR_ID
+##
+## Ends in an error in state: 124.
+##
+## expr4 -> expr4 . PLUS expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . MINUS expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . STAR expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . SLASH expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . MOD expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . EQ expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . NEQ expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . LT expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . LTE expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . GT expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . GTE expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . AND expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 AND expr4 . [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . OR expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . CONS expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . CARAT expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+##
+## The known suffix of the stack is as follows:
+## expr4 AND expr4
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ FALSE COMMA WITH
+##
+## Ends in an error in state: 125.
+##
+## delim(COMMA,expr4) -> COMMA . expr4 [ WITH TYPE THEN SEMI RPAREN RBRAK LET IN EOF ELSE COMMA COLON ALT ]
+##
+## The known suffix of the stack is as follows:
+## COMMA
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ FALSE COMMA MINUS FALSE VAR_ID
+##
+## Ends in an error in state: 126.
+##
+## delim(COMMA,expr4) -> COMMA expr4 . [ WITH TYPE THEN SEMI RPAREN RBRAK LET IN EOF ELSE COMMA COLON ALT ]
+## expr4 -> expr4 . PLUS expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . MINUS expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . STAR expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . SLASH expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . MOD expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . EQ expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . NEQ expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . LT expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . LTE expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . GT expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . GTE expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . AND expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . OR expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . CONS expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+## expr4 -> expr4 . CARAT expr4 [ WITH TYPE THEN STAR SLASH SEMI RPAREN RBRAK PLUS OR NEQ MOD MINUS LTE LT LET IN GTE GT EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+##
+## The known suffix of the stack is as follows:
+## COMMA expr4
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ FUN VAR_ID WITH
+##
+## Ends in an error in state: 133.
+##
+## nonempty_list(arg) -> arg . [ ARROW ]
+## nonempty_list(arg) -> arg . nonempty_list(arg) [ ARROW ]
+##
+## The known suffix of the stack is as follows:
+## arg
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ IF FALSE ALT
+##
+## Ends in an error in state: 135.
+##
+## expr_(expr) -> IF expr . THEN expr ELSE expr [ WITH TYPE THEN SEMI RPAREN RBRAK LET IN EOF ELSE COLON ]
+##
+## The known suffix of the stack is as follows:
+## IF expr
+##
+## WARNING: This example involves spurious reductions.
+## This implies that, although the LR(1) items shown above provide an
+## accurate view of the past (what has been recognized so far), they
+## may provide an INCOMPLETE view of the future (what was expected next).
+## In state 90, spurious reduction of production expr4 -> expr5
+## In state 94, spurious reduction of production expr3 -> expr4
+## In state 130, spurious reduction of production expr2_(expr3) -> expr3
+## In state 131, spurious reduction of production expr -> expr2_(expr3)
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ IF FALSE THEN WITH
+##
+## Ends in an error in state: 136.
+##
+## expr_(expr) -> IF expr THEN . expr ELSE expr [ WITH TYPE THEN SEMI RPAREN RBRAK LET IN EOF ELSE COLON ]
+##
+## The known suffix of the stack is as follows:
+## IF expr THEN
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ IF FALSE THEN FALSE ALT
+##
+## Ends in an error in state: 137.
+##
+## expr_(expr) -> IF expr THEN expr . ELSE expr [ WITH TYPE THEN SEMI RPAREN RBRAK LET IN EOF ELSE COLON ]
+##
+## The known suffix of the stack is as follows:
+## IF expr THEN expr
+##
+## WARNING: This example involves spurious reductions.
+## This implies that, although the LR(1) items shown above provide an
+## accurate view of the past (what has been recognized so far), they
+## may provide an INCOMPLETE view of the future (what was expected next).
+## In state 90, spurious reduction of production expr4 -> expr5
+## In state 94, spurious reduction of production expr3 -> expr4
+## In state 130, spurious reduction of production expr2_(expr3) -> expr3
+## In state 131, spurious reduction of production expr -> expr2_(expr3)
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ IF FALSE THEN FALSE ELSE WITH
+##
+## Ends in an error in state: 138.
+##
+## expr_(expr) -> IF expr THEN expr ELSE . expr [ WITH TYPE THEN SEMI RPAREN RBRAK LET IN EOF ELSE COLON ]
+##
+## The known suffix of the stack is as follows:
+## IF expr THEN expr ELSE
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ LBRAK FALSE ALT
+##
+## Ends in an error in state: 144.
+##
+## nonempty_semi_list(expr) -> expr . [ RBRAK ]
+## nonempty_semi_list(expr) -> expr . SEMI [ RBRAK ]
+## nonempty_semi_list(expr) -> expr . SEMI nonempty_semi_list(expr) [ RBRAK ]
+##
+## The known suffix of the stack is as follows:
+## expr
+##
+## WARNING: This example involves spurious reductions.
+## This implies that, although the LR(1) items shown above provide an
+## accurate view of the past (what has been recognized so far), they
+## may provide an INCOMPLETE view of the future (what was expected next).
+## In state 90, spurious reduction of production expr4 -> expr5
+## In state 94, spurious reduction of production expr3 -> expr4
+## In state 130, spurious reduction of production expr2_(expr3) -> expr3
+## In state 131, spurious reduction of production expr -> expr2_(expr3)
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ LBRAK FALSE SEMI WITH
+##
+## Ends in an error in state: 145.
+##
+## nonempty_semi_list(expr) -> expr SEMI . [ RBRAK ]
+## nonempty_semi_list(expr) -> expr SEMI . nonempty_semi_list(expr) [ RBRAK ]
+##
+## The known suffix of the stack is as follows:
+## expr SEMI
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ LET VAR_ID EQ FALSE ALT
+##
+## Ends in an error in state: 147.
+##
+## expr_(expr) -> LET option(REC) VAR_ID list(arg) option(delim(COLON,ty)) EQ expr . IN expr [ WITH TYPE THEN SEMI RPAREN RBRAK LET IN EOF ELSE COLON ]
+##
+## The known suffix of the stack is as follows:
+## LET option(REC) VAR_ID list(arg) option(delim(COLON,ty)) EQ expr
+##
+## WARNING: This example involves spurious reductions.
+## This implies that, although the LR(1) items shown above provide an
+## accurate view of the past (what has been recognized so far), they
+## may provide an INCOMPLETE view of the future (what was expected next).
+## In state 90, spurious reduction of production expr4 -> expr5
+## In state 94, spurious reduction of production expr3 -> expr4
+## In state 130, spurious reduction of production expr2_(expr3) -> expr3
+## In state 131, spurious reduction of production expr -> expr2_(expr3)
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ LET VAR_ID EQ FALSE IN WITH
+##
+## Ends in an error in state: 148.
+##
+## expr_(expr) -> LET option(REC) VAR_ID list(arg) option(delim(COLON,ty)) EQ expr IN . expr [ WITH TYPE THEN SEMI RPAREN RBRAK LET IN EOF ELSE COLON ]
+##
+## The known suffix of the stack is as follows:
+## LET option(REC) VAR_ID list(arg) option(delim(COLON,ty)) EQ expr IN
+##
+
+Syntax error
+
+prog: LET VAR_ID VAR_ID WITH
+##
+## Ends in an error in state: 151.
+##
+## list(arg) -> arg . list(arg) [ EQ COLON ]
+##
+## The known suffix of the stack is as follows:
+## arg
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ MATCH FALSE ALT
+##
+## Ends in an error in state: 153.
+##
+## expr2_(expr3) -> MATCH expr . WITH nonempty_list(case) [ WITH TYPE THEN SEMI RPAREN RBRAK LET IN EOF ELSE COLON ]
+##
+## The known suffix of the stack is as follows:
+## MATCH expr
+##
+## WARNING: This example involves spurious reductions.
+## This implies that, although the LR(1) items shown above provide an
+## accurate view of the past (what has been recognized so far), they
+## may provide an INCOMPLETE view of the future (what was expected next).
+## In state 90, spurious reduction of production expr4 -> expr5
+## In state 94, spurious reduction of production expr3 -> expr4
+## In state 130, spurious reduction of production expr2_(expr3) -> expr3
+## In state 131, spurious reduction of production expr -> expr2_(expr3)
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ MATCH FALSE WITH WITH
+##
+## Ends in an error in state: 154.
+##
+## expr2_(expr3) -> MATCH expr WITH . nonempty_list(case) [ WITH TYPE THEN SEMI RPAREN RBRAK LET IN EOF ELSE COLON ]
+##
+## The known suffix of the stack is as follows:
+## MATCH expr WITH
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ MATCH FALSE WITH ALT WITH
+##
+## Ends in an error in state: 155.
+##
+## case -> ALT . pattern ARROW expr_no_match [ WITH TYPE THEN SEMI RPAREN RBRAK LET IN EOF ELSE COLON ALT ]
+##
+## The known suffix of the stack is as follows:
+## ALT
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ MATCH FALSE WITH ALT LPAREN WITH
+##
+## Ends in an error in state: 159.
+##
+## pattern3 -> LPAREN . option(pattern) RPAREN [ SEMI RPAREN RBRAK CONS COMMA ARROW ]
+##
+## The known suffix of the stack is as follows:
+## LPAREN
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ MATCH FALSE WITH ALT LBRAK WITH
+##
+## Ends in an error in state: 160.
+##
+## list_lit(pattern) -> LBRAK . semi_list(pattern) RBRAK [ SEMI RPAREN RBRAK CONS COMMA ARROW ]
+##
+## The known suffix of the stack is as follows:
+## LBRAK
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ MATCH FALSE WITH ALT CONSTR_ID WITH
+##
+## Ends in an error in state: 163.
+##
+## pattern3 -> CONSTR_ID . option(pattern3) [ SEMI RPAREN RBRAK CONS COMMA ARROW ]
+##
+## The known suffix of the stack is as follows:
+## CONSTR_ID
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ MATCH FALSE WITH ALT FALSE WITH
+##
+## Ends in an error in state: 170.
+##
+## pattern -> pattern2 . nonempty_list(delim(COMMA,pattern2)) [ SEMI RPAREN RBRAK ARROW ]
+## pattern -> pattern2 . [ SEMI RPAREN RBRAK ARROW ]
+## pattern2 -> pattern2 . CONS pattern2 [ SEMI RPAREN RBRAK CONS COMMA ARROW ]
+##
+## The known suffix of the stack is as follows:
+## pattern2
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ MATCH FALSE WITH ALT CONSTR_ID CONS WITH
+##
+## Ends in an error in state: 171.
+##
+## pattern2 -> pattern2 CONS . pattern2 [ SEMI RPAREN RBRAK CONS COMMA ARROW ]
+##
+## The known suffix of the stack is as follows:
+## pattern2 CONS
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ MATCH FALSE WITH ALT CONSTR_ID CONS FALSE WITH
+##
+## Ends in an error in state: 172.
+##
+## pattern2 -> pattern2 . CONS pattern2 [ SEMI RPAREN RBRAK CONS COMMA ARROW ]
+## pattern2 -> pattern2 CONS pattern2 . [ SEMI RPAREN RBRAK CONS COMMA ARROW ]
+##
+## The known suffix of the stack is as follows:
+## pattern2 CONS pattern2
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ MATCH FALSE WITH ALT CONSTR_ID COMMA WITH
+##
+## Ends in an error in state: 173.
+##
+## delim(COMMA,pattern2) -> COMMA . pattern2 [ SEMI RPAREN RBRAK COMMA ARROW ]
+##
+## The known suffix of the stack is as follows:
+## COMMA
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ MATCH FALSE WITH ALT CONSTR_ID COMMA FALSE WITH
+##
+## Ends in an error in state: 174.
+##
+## delim(COMMA,pattern2) -> COMMA pattern2 . [ SEMI RPAREN RBRAK COMMA ARROW ]
+## pattern2 -> pattern2 . CONS pattern2 [ SEMI RPAREN RBRAK CONS COMMA ARROW ]
+##
+## The known suffix of the stack is as follows:
+## COMMA pattern2
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ MATCH FALSE WITH ALT LBRAK CONSTR_ID RPAREN
+##
+## Ends in an error in state: 178.
+##
+## nonempty_semi_list(pattern) -> pattern . [ RBRAK ]
+## nonempty_semi_list(pattern) -> pattern . SEMI [ RBRAK ]
+## nonempty_semi_list(pattern) -> pattern . SEMI nonempty_semi_list(pattern) [ RBRAK ]
+##
+## The known suffix of the stack is as follows:
+## pattern
+##
+## WARNING: This example involves spurious reductions.
+## This implies that, although the LR(1) items shown above provide an
+## accurate view of the past (what has been recognized so far), they
+## may provide an INCOMPLETE view of the future (what was expected next).
+## In state 163, spurious reduction of production option(pattern3) ->
+## In state 165, spurious reduction of production pattern3 -> CONSTR_ID option(pattern3)
+## In state 169, spurious reduction of production pattern2 -> pattern3
+## In state 170, spurious reduction of production pattern -> pattern2
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ MATCH FALSE WITH ALT LBRAK CONSTR_ID SEMI WITH
+##
+## Ends in an error in state: 179.
+##
+## nonempty_semi_list(pattern) -> pattern SEMI . [ RBRAK ]
+## nonempty_semi_list(pattern) -> pattern SEMI . nonempty_semi_list(pattern) [ RBRAK ]
+##
+## The known suffix of the stack is as follows:
+## pattern SEMI
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ MATCH FALSE WITH ALT LPAREN CONSTR_ID SEMI
+##
+## Ends in an error in state: 184.
+##
+## pattern3 -> LPAREN option(pattern) . RPAREN [ SEMI RPAREN RBRAK CONS COMMA ARROW ]
+##
+## The known suffix of the stack is as follows:
+## LPAREN option(pattern)
+##
+## WARNING: This example involves spurious reductions.
+## This implies that, although the LR(1) items shown above provide an
+## accurate view of the past (what has been recognized so far), they
+## may provide an INCOMPLETE view of the future (what was expected next).
+## In state 163, spurious reduction of production option(pattern3) ->
+## In state 165, spurious reduction of production pattern3 -> CONSTR_ID option(pattern3)
+## In state 169, spurious reduction of production pattern2 -> pattern3
+## In state 170, spurious reduction of production pattern -> pattern2
+## In state 183, spurious reduction of production option(pattern) -> pattern
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ MATCH FALSE WITH ALT CONSTR_ID SEMI
+##
+## Ends in an error in state: 186.
+##
+## case -> ALT pattern . ARROW expr_no_match [ WITH TYPE THEN SEMI RPAREN RBRAK LET IN EOF ELSE COLON ALT ]
+##
+## The known suffix of the stack is as follows:
+## ALT pattern
+##
+## WARNING: This example involves spurious reductions.
+## This implies that, although the LR(1) items shown above provide an
+## accurate view of the past (what has been recognized so far), they
+## may provide an INCOMPLETE view of the future (what was expected next).
+## In state 163, spurious reduction of production option(pattern3) ->
+## In state 165, spurious reduction of production pattern3 -> CONSTR_ID option(pattern3)
+## In state 169, spurious reduction of production pattern2 -> pattern3
+## In state 170, spurious reduction of production pattern -> pattern2
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ MATCH FALSE WITH ALT CONSTR_ID ARROW WITH
+##
+## Ends in an error in state: 187.
+##
+## case -> ALT pattern ARROW . expr_no_match [ WITH TYPE THEN SEMI RPAREN RBRAK LET IN EOF ELSE COLON ALT ]
+##
+## The known suffix of the stack is as follows:
+## ALT pattern ARROW
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ MATCH FALSE WITH ALT CONSTR_ID ARROW LET WITH
+##
+## Ends in an error in state: 188.
+##
+## expr_(expr_no_match) -> LET . option(REC) VAR_ID list(arg) option(delim(COLON,ty)) EQ expr IN expr_no_match [ WITH TYPE THEN SEMI RPAREN RBRAK LET IN EOF ELSE COLON ALT ]
+##
+## The known suffix of the stack is as follows:
+## LET
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ MATCH FALSE WITH ALT CONSTR_ID ARROW LET REC WITH
+##
+## Ends in an error in state: 189.
+##
+## expr_(expr_no_match) -> LET option(REC) . VAR_ID list(arg) option(delim(COLON,ty)) EQ expr IN expr_no_match [ WITH TYPE THEN SEMI RPAREN RBRAK LET IN EOF ELSE COLON ALT ]
+##
+## The known suffix of the stack is as follows:
+## LET option(REC)
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ MATCH FALSE WITH ALT CONSTR_ID ARROW LET VAR_ID WITH
+##
+## Ends in an error in state: 190.
+##
+## expr_(expr_no_match) -> LET option(REC) VAR_ID . list(arg) option(delim(COLON,ty)) EQ expr IN expr_no_match [ WITH TYPE THEN SEMI RPAREN RBRAK LET IN EOF ELSE COLON ALT ]
+##
+## The known suffix of the stack is as follows:
+## LET option(REC) VAR_ID
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ MATCH FALSE WITH ALT CONSTR_ID ARROW LET VAR_ID COLON BOOL RPAREN
+##
+## Ends in an error in state: 192.
+##
+## expr_(expr_no_match) -> LET option(REC) VAR_ID list(arg) option(delim(COLON,ty)) . EQ expr IN expr_no_match [ WITH TYPE THEN SEMI RPAREN RBRAK LET IN EOF ELSE COLON ALT ]
+##
+## The known suffix of the stack is as follows:
+## LET option(REC) VAR_ID list(arg) option(delim(COLON,ty))
+##
+## WARNING: This example involves spurious reductions.
+## This implies that, although the LR(1) items shown above provide an
+## accurate view of the past (what has been recognized so far), they
+## may provide an INCOMPLETE view of the future (what was expected next).
+## In state 25, spurious reduction of production ty2 -> ty3
+## In state 32, spurious reduction of production ty -> ty2
+## In state 56, spurious reduction of production delim(COLON,ty) -> COLON ty
+## In state 150, spurious reduction of production option(delim(COLON,ty)) -> delim(COLON,ty)
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ MATCH FALSE WITH ALT CONSTR_ID ARROW LET VAR_ID EQ WITH
+##
+## Ends in an error in state: 193.
+##
+## expr_(expr_no_match) -> LET option(REC) VAR_ID list(arg) option(delim(COLON,ty)) EQ . expr IN expr_no_match [ WITH TYPE THEN SEMI RPAREN RBRAK LET IN EOF ELSE COLON ALT ]
+##
+## The known suffix of the stack is as follows:
+## LET option(REC) VAR_ID list(arg) option(delim(COLON,ty)) EQ
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ MATCH FALSE WITH ALT CONSTR_ID ARROW LET VAR_ID EQ FALSE ALT
+##
+## Ends in an error in state: 194.
+##
+## expr_(expr_no_match) -> LET option(REC) VAR_ID list(arg) option(delim(COLON,ty)) EQ expr . IN expr_no_match [ WITH TYPE THEN SEMI RPAREN RBRAK LET IN EOF ELSE COLON ALT ]
+##
+## The known suffix of the stack is as follows:
+## LET option(REC) VAR_ID list(arg) option(delim(COLON,ty)) EQ expr
+##
+## WARNING: This example involves spurious reductions.
+## This implies that, although the LR(1) items shown above provide an
+## accurate view of the past (what has been recognized so far), they
+## may provide an INCOMPLETE view of the future (what was expected next).
+## In state 90, spurious reduction of production expr4 -> expr5
+## In state 94, spurious reduction of production expr3 -> expr4
+## In state 130, spurious reduction of production expr2_(expr3) -> expr3
+## In state 131, spurious reduction of production expr -> expr2_(expr3)
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ MATCH FALSE WITH ALT CONSTR_ID ARROW LET VAR_ID EQ FALSE IN WITH
+##
+## Ends in an error in state: 195.
+##
+## expr_(expr_no_match) -> LET option(REC) VAR_ID list(arg) option(delim(COLON,ty)) EQ expr IN . expr_no_match [ WITH TYPE THEN SEMI RPAREN RBRAK LET IN EOF ELSE COLON ALT ]
+##
+## The known suffix of the stack is as follows:
+## LET option(REC) VAR_ID list(arg) option(delim(COLON,ty)) EQ expr IN
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ MATCH FALSE WITH ALT CONSTR_ID ARROW IF WITH
+##
+## Ends in an error in state: 196.
+##
+## expr_(expr_no_match) -> IF . expr THEN expr ELSE expr_no_match [ WITH TYPE THEN SEMI RPAREN RBRAK LET IN EOF ELSE COLON ALT ]
+##
+## The known suffix of the stack is as follows:
+## IF
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ MATCH FALSE WITH ALT CONSTR_ID ARROW IF FALSE ALT
+##
+## Ends in an error in state: 197.
+##
+## expr_(expr_no_match) -> IF expr . THEN expr ELSE expr_no_match [ WITH TYPE THEN SEMI RPAREN RBRAK LET IN EOF ELSE COLON ALT ]
+##
+## The known suffix of the stack is as follows:
+## IF expr
+##
+## WARNING: This example involves spurious reductions.
+## This implies that, although the LR(1) items shown above provide an
+## accurate view of the past (what has been recognized so far), they
+## may provide an INCOMPLETE view of the future (what was expected next).
+## In state 90, spurious reduction of production expr4 -> expr5
+## In state 94, spurious reduction of production expr3 -> expr4
+## In state 130, spurious reduction of production expr2_(expr3) -> expr3
+## In state 131, spurious reduction of production expr -> expr2_(expr3)
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ MATCH FALSE WITH ALT CONSTR_ID ARROW IF FALSE THEN WITH
+##
+## Ends in an error in state: 198.
+##
+## expr_(expr_no_match) -> IF expr THEN . expr ELSE expr_no_match [ WITH TYPE THEN SEMI RPAREN RBRAK LET IN EOF ELSE COLON ALT ]
+##
+## The known suffix of the stack is as follows:
+## IF expr THEN
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ MATCH FALSE WITH ALT CONSTR_ID ARROW IF FALSE THEN FALSE ALT
+##
+## Ends in an error in state: 199.
+##
+## expr_(expr_no_match) -> IF expr THEN expr . ELSE expr_no_match [ WITH TYPE THEN SEMI RPAREN RBRAK LET IN EOF ELSE COLON ALT ]
+##
+## The known suffix of the stack is as follows:
+## IF expr THEN expr
+##
+## WARNING: This example involves spurious reductions.
+## This implies that, although the LR(1) items shown above provide an
+## accurate view of the past (what has been recognized so far), they
+## may provide an INCOMPLETE view of the future (what was expected next).
+## In state 90, spurious reduction of production expr4 -> expr5
+## In state 94, spurious reduction of production expr3 -> expr4
+## In state 130, spurious reduction of production expr2_(expr3) -> expr3
+## In state 131, spurious reduction of production expr -> expr2_(expr3)
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ MATCH FALSE WITH ALT CONSTR_ID ARROW IF FALSE THEN FALSE ELSE WITH
+##
+## Ends in an error in state: 200.
+##
+## expr_(expr_no_match) -> IF expr THEN expr ELSE . expr_no_match [ WITH TYPE THEN SEMI RPAREN RBRAK LET IN EOF ELSE COLON ALT ]
+##
+## The known suffix of the stack is as follows:
+## IF expr THEN expr ELSE
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ MATCH FALSE WITH ALT CONSTR_ID ARROW FUN WITH
+##
+## Ends in an error in state: 201.
+##
+## expr_(expr_no_match) -> FUN . nonempty_list(arg) ARROW expr_no_match [ WITH TYPE THEN SEMI RPAREN RBRAK LET IN EOF ELSE COLON ALT ]
+##
+## The known suffix of the stack is as follows:
+## FUN
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ MATCH FALSE WITH ALT CONSTR_ID ARROW FUN VAR_ID ARROW WITH
+##
+## Ends in an error in state: 203.
+##
+## expr_(expr_no_match) -> FUN nonempty_list(arg) ARROW . expr_no_match [ WITH TYPE THEN SEMI RPAREN RBRAK LET IN EOF ELSE COLON ALT ]
+##
+## The known suffix of the stack is as follows:
+## FUN nonempty_list(arg) ARROW
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ LPAREN FALSE ALT
+##
+## Ends in an error in state: 213.
+##
+## expr5 -> LPAREN expr . option(delim(COLON,ty)) RPAREN [ WITH VAR_ID TYPE TRUE THEN STRING_LIT STAR SLASH SEMI RPAREN RBRAK PRINT_ENDLINE PLUS OR NEQ MOD MINUS LTE LT LPAREN LET LBRAK INT_LIT IN GTE GT FALSE EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+##
+## The known suffix of the stack is as follows:
+## LPAREN expr
+##
+## WARNING: This example involves spurious reductions.
+## This implies that, although the LR(1) items shown above provide an
+## accurate view of the past (what has been recognized so far), they
+## may provide an INCOMPLETE view of the future (what was expected next).
+## In state 90, spurious reduction of production expr4 -> expr5
+## In state 94, spurious reduction of production expr3 -> expr4
+## In state 130, spurious reduction of production expr2_(expr3) -> expr3
+## In state 131, spurious reduction of production expr -> expr2_(expr3)
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ LPAREN FALSE COLON BOOL EQ
+##
+## Ends in an error in state: 214.
+##
+## expr5 -> LPAREN expr option(delim(COLON,ty)) . RPAREN [ WITH VAR_ID TYPE TRUE THEN STRING_LIT STAR SLASH SEMI RPAREN RBRAK PRINT_ENDLINE PLUS OR NEQ MOD MINUS LTE LT LPAREN LET LBRAK INT_LIT IN GTE GT FALSE EQ EOF ELSE CONS COMMA COLON CARAT AND ALT ]
+##
+## The known suffix of the stack is as follows:
+## LPAREN expr option(delim(COLON,ty))
+##
+## WARNING: This example involves spurious reductions.
+## This implies that, although the LR(1) items shown above provide an
+## accurate view of the past (what has been recognized so far), they
+## may provide an INCOMPLETE view of the future (what was expected next).
+## In state 25, spurious reduction of production ty2 -> ty3
+## In state 32, spurious reduction of production ty -> ty2
+## In state 56, spurious reduction of production delim(COLON,ty) -> COLON ty
+## In state 150, spurious reduction of production option(delim(COLON,ty)) -> delim(COLON,ty)
+##
+
+Syntax error
+
+prog: LET VAR_ID EQ FALSE ALT
+##
+## Ends in an error in state: 218.
+##
+## list(stmt) -> stmt . list(stmt) [ EOF ]
+##
+## The known suffix of the stack is as follows:
+## stmt
+##
+## WARNING: This example involves spurious reductions.
+## This implies that, although the LR(1) items shown above provide an
+## accurate view of the past (what has been recognized so far), they
+## may provide an INCOMPLETE view of the future (what was expected next).
+## In state 90, spurious reduction of production expr4 -> expr5
+## In state 94, spurious reduction of production expr3 -> expr4
+## In state 130, spurious reduction of production expr2_(expr3) -> expr3
+## In state 131, spurious reduction of production expr -> expr2_(expr3)
+## In state 217, spurious reduction of production stmt -> LET option(REC) VAR_ID list(arg) option(delim(COLON,ty)) EQ expr
+##
+
+Syntax error
