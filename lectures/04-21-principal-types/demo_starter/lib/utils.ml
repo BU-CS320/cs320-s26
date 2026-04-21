@@ -1,12 +1,14 @@
 
 (* monotype *)
 type ty =
-  | TInt
-  | TBool
-  | TFun of ty * ty
-  | TPar of string
+  | TInt (* int *)
+  | TBool (* bool *)
+  | TFun of ty * ty (* τ₁ → τ₂ *)
+  | TPar of string (* 'a 'b or α β *)
 
 type ty_scheme = string list * ty
+(* ∀ α . ∀ β . α → β → α
+   ["a"; "b"], TFun (TPar "a", TFun (TPar "b", TPar "a")) *)
 
 type expr =
   | Var of string
