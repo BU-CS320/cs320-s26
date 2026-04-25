@@ -20,6 +20,16 @@ type expr =
   | App of expr * expr
   | Let of string * expr * expr
 
+(*
+   let x₁ = e₁
+   let x₂ = e₂
+   ...
+
+   [("x₁", e₁);
+    ("x₂", e₂);
+    ...
+   ]
+   *)
 type prog = (string * expr) list
 
 module Env = Map.Make(String)

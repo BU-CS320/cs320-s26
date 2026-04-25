@@ -11,6 +11,12 @@ let parse (s : string) : prog option =
 
 type constr = ty * ty
 type solution = (string * ty) list
+(* [
+     x₁ ↦ τ₁;
+     x₂ ↦ τ₂;
+     x₃ ↦ τ₃;
+   ]
+*)
 
 let is_free a t =
   let rec go = function
@@ -36,9 +42,9 @@ let unify (cs : constr list) : solution option =
         match t1, t2 with
         | _ when t1 = t2 -> go acc cs
         | TFun (in1, out1), TFun (in2, out2) -> go acc ((in1, in2) :: (out1, out2) :: cs)
-        | TPar a, t when is_free a t ->
+        | TPar a, t when not (is_free a t) ->
           go ((a, t) :: acc) (List.map (fun (t1, t2) -> subst t a t1, subst t a t2) cs)
-        | t, TPar a -> go acc ((t, TPar a) :: cs)
+        | t, TPar a -> go acc ((TPar a, t) :: cs)
         | _ -> None
       end
   in go [] cs
@@ -81,16 +87,73 @@ let rec constrs_of (ctxt : ctxt) (e : expr) : ty * constr list =
       let a = fresh () in
       let t, cs = constrs_of (add x a ctxt) e in
       TFun (a, t), cs
-    | App (_e1, _e2) -> assert false
-    | Var _x -> assert false
+    | App (e1, e2) ->
+      (* Γ ⊢ e₁ : τ₁ ⊣ 𝒞₁ *)
+      let t1, cs1 = go e1 in
+      (* Γ ⊢ e₂ : τ₂ ⊣ 𝒞₂ *)
+      let t2, cs2 = go e2 in
+      (* α is fresh *)
+      let a = fresh () in
+      (* Γ ⊢ e₁ e₂ : α ⊣ τ₁ ≐ τ₂ → α, 𝒞₁, 𝒞₂ *)
+      a, (t1, TFun (t2, a)) :: cs1 @ cs2
+    | Var x ->
+      match Env.find_opt x ctxt with
+      | None -> TInt, [TInt, TBool]
+      | Some (var, ty) ->
+        let ty =
+          List.fold_left
+            (fun ty a -> subst (fresh ()) a ty)
+            ty
+            var
+        in
+        ty, []
   in go e
 
+let rec nub l =
+  match l with
+  | [] -> []
+  | x :: xs -> x :: nub (List.filter ((<>) x) xs)
+
+let free_vars (ty : ty) : string list =
+  let rec go ty =
+    match ty with
+    | TInt -> []
+    | TBool -> []
+    | TFun (t1, t2) -> go t1 @ go t2
+    | TPar a -> [a]
+  in nub (go ty)
+
 let principal (sol : solution) (ty : ty) : ty_scheme =
-  ignore (sol, ty); assert false
+  (* apply sol to ty *)
+  let ty =
+    List.fold_left
+      (fun t1 (a, t2) -> subst t2 a t1)
+      ty
+      sol
+  in
+  (* find free variables of ty *)
+  let fv = free_vars ty in
+  (* quantify over free variables *)
+  fv, ty
 
 let is_well_typed (p : prog) : bool =
-  ignore p; assert false
-
+  let rec go ctxt p =
+    match p with
+    | [] -> true
+    (* let x = e ... *)
+    | (x, e) :: p ->
+      (* 1. Constraint-based inference *)
+      let ty, cs = constrs_of ctxt e in
+      (* 2. Unification *)
+      let sol = unify cs in
+      (* 3. Generalization (principal type) *)
+      match sol with
+      | None -> false
+      | Some sol ->
+        let pty = principal sol ty in
+        let _ = print_endline (string_of_ty_scheme pty) in
+        go (Env.add x pty ctxt) p
+  in go Env.empty p
 
 (* SEMANTICS *)
 
