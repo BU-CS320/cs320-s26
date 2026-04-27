@@ -73,7 +73,7 @@ details.
 | 4/22 | Lab 12: Principal Types Worksheet           |                        |                                          |
 | 4/23 | Specialization                              | OCP [[https://cs3110.github.io/textbook/chapters/interp/inference.html][10.6]]               | MP3 check-in due                         |
 |------+---------------------------------------------+------------------------+------------------------------------------|
-| 4/27 | Lab 13: Final Exam Review                   |                        |                                          |
+| 4/27 | Lab 13: Final Exam Review                   |                        | [[file:final/final-exam-f25.pdf][Fall 2025 Final Exam]]                     |
 | 4/28 | Bytecode Interpreters                       |                        |                                          |
 | 4/30 | Final Exam Review Session (Workshop)        |                        | MP3 due                                  |
 |------+---------------------------------------------+------------------------+------------------------------------------|
