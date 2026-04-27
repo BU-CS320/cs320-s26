@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-04-27 Mon 11:09 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CAS CS 320 Final Exam Prep Material</title>
+<meta name="author" content="Nathan" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">CAS CS 320 Final Exam Prep Material</h1>
+<p>
+This page contains some information/material may be useful in
+preparing for the final exam.  The information here is not exhaustive,
+and I can pretty much guarantee that there will be at least one
+question on the final exam this is distinct from any problem that
+we've done before.
+</p>
+<div id="outline-container-org5dce65b" class="outline-2">
+<h2 id="org5dce65b">General Study Material</h2>
+<div class="outline-text-2" id="text-org5dce65b">
+<ul class="org-ul">
+<li><a href="https://ocaml.org/exercises">OCaml Exercises</a>: A collection of basic exercises by the OCaml folks</li>
+<li><a href="https://cs3110.github.io/textbook/cover.html">OCaml Programming: Correct + Efficient + Beautiful</a>: A reminder that
+the textbook to which we casually refer has exercises in it</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgf3e1974" class="outline-2">
+<h2 id="orgf3e1974">Previous Exams</h2>
+<div class="outline-text-2" id="text-orgf3e1974">
+<ul class="org-ul">
+<li><a href="final-exam-f25.pdf">Fall 2025</a></li>
+<li><a href="final-exam-s25.pdf">Spring 2025</a></li>
+<li><a href="practice-final-exam-s25.pdf">Spring 2025 (Practice Exam)</a></li>
+<li><a href="final-exam-f24.pdf">Fall 2024</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgfbbdd51" class="outline-2">
+<h2 id="orgfbbdd51">You should be able to&#x2026;</h2>
+<div class="outline-text-2" id="text-orgfbbdd51">
+<ul class="org-ul">
+<li><del>design and implement a good and novel programming language</del> (yes,
+but not during the exam)</li>
+</ul>
+</div>
+<div id="outline-container-org6bdeb95" class="outline-3">
+<h3 id="org6bdeb95">Basic OCaml</h3>
+<div class="outline-text-3" id="text-org6bdeb95">
+<ul class="org-ul">
+<li>solve basic programming exercises</li>
+<li>implement functions both directly and tail-recursively</li>
+<li>determine if a function is tail-recursive</li>
+<li>state the benefits of tail-recursion</li>
+<li>write mutually recursive functions</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org1aaf861" class="outline-3">
+<h3 id="org1aaf861">Polymorphism</h3>
+<div class="outline-text-3" id="text-org1aaf861">
+<ul class="org-ul">
+<li>determine an expression that has a given polymorphic type</li>
+<li>determine by inspection the (polymorphic) type given to an
+expression by OCaml</li>
+<li>state the benefits of polymorphism</li>
+<li>explain what restricts the type of an expression, e.g., why a type
+parameter does or does not appear in the type</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org1287ff2" class="outline-3">
+<h3 id="org1287ff2">Inference Systems</h3>
+<div class="outline-text-3" id="text-org1287ff2">
+<ul class="org-ul">
+<li>Translate an inference rule into an English description</li>
+<li>Translate an English description into a inference rule</li>
+<li>Write a derivation for a judgment in a potentially unfamiliar
+inference system</li>
+<li>Design new (basic) rules for inference systems related to ones we've
+covered in this course</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org683cb7b" class="outline-3">
+<h3 id="org683cb7b">Algebraic Data Types (ADTs) and Records</h3>
+<div class="outline-text-3" id="text-org683cb7b">
+<ul class="org-ul">
+<li>design ADTs/records for a given programming task</li>
+<li>determine ADTs/records based on use in OCaml code</li>
+<li>write functions using pattern matching on ADTs/records</li>
+<li>write functions using common ADTs, e.g., lists, trees, options,
+results, S-expressions, etc.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org4b8f04a" class="outline-3">
+<h3 id="org4b8f04a">Higher-Order Programming</h3>
+<div class="outline-text-3" id="text-org4b8f04a">
+<ul class="org-ul">
+<li>implement a function using <code>map</code>, <code>filter</code>, <code>fold_left</code>, and
+<code>fold_right</code></li>
+<li>implement new higher-order functions</li>
+<li>state the benefit of higher-order functions</li>
+<li>state and use the formal semantics of higher-order programming</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgbcf4588" class="outline-3">
+<h3 id="orgbcf4588">Formal Grammar</h3>
+<div class="outline-text-3" id="text-orgbcf4588">
+<ul class="org-ul">
+<li>determine the terminal and nonterminal symbols of a grammar</li>
+<li>determine if a sentence is recognized by a grammar</li>
+<li>give both a (leftmost) derivation and a parse tree for a sentence
+recognized by a grammar</li>
+<li>determine if/demonstrate that a grammar is ambiguous</li>
+<li>give an unambiguous grammar for basic formal languages, e.g.,
+S-expressions, arithmetic expressions, etc.</li>
+<li>determine the associativity of an operator based on a given grammar</li>
+<li>determine the relative precedence of a pair of operators based on a
+given grammar</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org2df727d" class="outline-3">
+<h3 id="org2df727d">Operational Semantics</h3>
+<div class="outline-text-3" id="text-org2df727d">
+<ul class="org-ul">
+<li>state the benefits/downsides of small-step and big-step semantics</li>
+<li>give a small-step semantics that is equivalent to a given big-step
+semantics</li>
+<li>give a big-step semantics that is equivalent to a given small-step
+semantics</li>
+<li>give a derivation in a potentially unfamiliar semantic system</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org159aab5" class="outline-3">
+<h3 id="org159aab5">The Substitution Model</h3>
+<div class="outline-text-3" id="text-org159aab5">
+<ul class="org-ul">
+<li>correctly parenthesize λ-expressions using the
+precedence/associativity rules of abstraction and application
+(seriously, figure this out)</li>
+<li>determine the free variables of an expression</li>
+<li>state the formal definition of α-equivalence</li>
+<li>determine if two λ-expressions are α-equivalent</li>
+<li>state the formal definition of capture-avoiding substitution</li>
+<li>perform capture-avoiding substitution on a given expression</li>
+<li>state the benefits/downsides of call-by-name (CBN) and call-by-value
+(CBV) semantics</li>
+<li>give an expression that's easy for CBN and hard for CBV</li>
+<li>give an expression that's hard for CBN and easy for CBV</li>
+<li>give a semantic derivation of an untyped λ-expression for a given
+semantics</li>
+<li>determine if evaluating an untyped λ-expression terminates for a
+given semantics</li>
+<li>determine if evaluating an untyped λ-expression gets stuck for a
+given semantics</li>
+<li>give a semantic derivation for the untyped λ-calculus</li>
+<li>give a semantic derivation in a potentially unfamiliar alternative
+semantic system for the untyped λ-calculus</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgd4908bb" class="outline-3">
+<h3 id="orgd4908bb">The Environment Model</h3>
+<div class="outline-text-3" id="text-orgd4908bb">
+<ul class="org-ul">
+<li>state the difference between lexical and dynamical scoping</li>
+<li>state of formal definition (and the point) of closures</li>
+<li>determine if a given semantic inference system correctly implements
+lexical scoping</li>
+<li>give a semantic derivation in a semantic system with closures</li>
+<li>give a semantic derivation in a potentially unfamiliar alternative
+semantic system which uses closures</li>
+<li>determine by inspection the closure that an expression evaluates to
+for a given semantics</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org54da1ee" class="outline-3">
+<h3 id="org54da1ee">Simple Types</h3>
+<div class="outline-text-3" id="text-org54da1ee">
+<ul class="org-ul">
+<li>give a typing derivation in the simply typed λ-calculus</li>
+<li>give a typing derivation in a potentially unfamiliar alternative
+typing system</li>
+<li>determine the smallest context necessary to give a type to an
+expression in a given typing system</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgbafeb4c" class="outline-3">
+<h3 id="orgbafeb4c">Progress and Preservation</h3>
+<div class="outline-text-3" id="text-orgbafeb4c">
+<ul class="org-ul">
+<li>state the formal definition of progress</li>
+<li>state the formal definition of preservation</li>
+<li>determine if (simple) typing/semantic systems satisfy
+progress/preservation</li>
+<li>give example of expressions that do not satisfy
+progress/preservation for given typing/semantic systems</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc0696aa" class="outline-3">
+<h3 id="orgc0696aa">Pattern Matching</h3>
+<div class="outline-text-3" id="text-orgc0696aa">
+<ul class="org-ul">
+<li>state the typing/semantic rules for pattern matching</li>
+<li>extend the inference rules for pattern matching given a new
+construct</li>
+<li>determine if a pattern match is exhaustive</li>
+<li>give type/semantic derivations of match-expressions</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org622db60" class="outline-3">
+<h3 id="org622db60">Hindley-Milner Type Inference</h3>
+<div class="outline-text-3" id="text-org622db60">
+<ul class="org-ul">
+<li>give a derivation in a constraint-based type inference system</li>
+<li>determine a most general unifier for a type unification problem</li>
+<li>determine the principal type of an expression using constraint-based
+inference and type unification</li>
+<li>explain why our system HM light does not have let-polymorphism</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org5b3ef8a" class="outline-2">
+<h2 id="org5b3ef8a">You will <i>not</i> be asked to &#x2026;</h2>
+<div class="outline-text-2" id="text-org5b3ef8a">
+<ul class="org-ul">
+<li>recall inference rules (they will be provided on the exam)</li>
+<li>prove meta-theoretic properties about inference systems</li>
+<li>answer questions about exhaustiveness checking</li>
+<li>answer questions about specialization</li>
+<li>implement an entire interpreter</li>
+</ul>
+
+<p>
+<b>Good luck and happy studying</b>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

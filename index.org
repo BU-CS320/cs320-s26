@@ -75,7 +75,7 @@ details.
 |------+---------------------------------------------+------------------------+------------------------------------------|
 | 4/27 | Lab 13: Final Exam Review                   |                        | [[file:final/final-exam-f25.pdf][Fall 2025 Final Exam]]                     |
 | 4/28 | Bytecode Interpreters                       |                        |                                          |
-| 4/30 | Final Exam Review Session (Workshop)        |                        | MP3 due                                  |
+| 4/30 | Final Exam Review Session (Workshop)        |                        | MP3 due, [[file:final/topics.org][Final Exam Review Material]]      |
 |------+---------------------------------------------+------------------------+------------------------------------------|
 * Calendar
 #+begin_export html
