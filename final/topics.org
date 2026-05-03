@@ -1,7 +1,7 @@
 #+title: CAS CS 320 Final Exam Prep Material
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style.css" />
 #+OPTIONS: html-style:nil H:2 toc:nil num:nil
-#+options:
+#+HTML_LINK_HOME: ../index.html
 This page contains some information/material may be useful in
 preparing for the final exam.  The information here is not exhaustive,
 and I can pretty much guarantee that there will be at least one
@@ -12,10 +12,10 @@ we've done before.
 + [[https://cs3110.github.io/textbook/cover.html][OCaml Programming: Correct + Efficient + Beautiful]]: A reminder that
   the textbook to which we casually refer has exercises in it
 * Previous Exams
-+ [[file:final-exam-f25.pdf][Fall 2025]]
-+ [[file:final-exam-s25.pdf][Spring 2025]]
-+ [[file:practice-final-exam-s25.pdf][Spring 2025 (Practice Exam)]]
-+ [[file:final-exam-f24.pdf][Fall 2024]]
++ [[file:final-exam-f25.pdf][Fall 2025]] [[file:final-exam-f25-sol.pdf][solutions]]
++ [[file:final-exam-s25.pdf][Spring 2025]] [[file:final-exam-s25-sol.pdf][solutions]]
++ [[file:practice-final-exam-s25.pdf][Spring 2025 (Practice Exam)]] [[file:practice-final-exam-s25-sol.pdf][solutions]]
++ [[file:final-exam-f24.pdf][Fall 2024]] [[file:final-exam-f24-sol.pdf][solutions]]
 * You should be able to...
 + +design and implement a good and novel programming language+ (yes,
   but not during the exam)
