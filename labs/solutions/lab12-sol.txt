@@ -1,0 +1,43 @@
+DERIVATION
+
+  · ⊢ fun x → fun y → fun z → x (1 + y z) : α → β → γ → η ⊣ { α ≐ int → η , int ≐ int , ϵ ≐ int , β ≐ γ → ϵ }
+  └── { x : α } ⊢ fun y → fun z → x (1 + y z) : β → γ → η ⊣ { α ≐ int → η , int ≐ int , ϵ ≐ int , β ≐ γ → ϵ }
+      └── { x : α , y : β } ⊢ fun z → x (1 + y z) : γ → η ⊣ { α ≐ int → η , int ≐ int , ϵ ≐ int , β ≐ γ → ϵ }
+          └── { x : α , y : β , z : γ } ⊢ x (1 + y z) : η ⊣ { α ≐ int → η , int ≐ int , ϵ ≐ int , β ≐ γ → ϵ }
+              ├── { x : α , y : β , z : γ } ⊢ x : α ⊣ ∅
+              └── { x : α , y : β , z : γ } ⊢ 1 + y z : int ⊣ { int ≐ int , ϵ ≐ int , β ≐ γ → ϵ }
+                  ├── { x : α , y : β , z : γ } ⊢ 1 : int ⊣ ∅
+                  └── { x : α , y : β , z : γ } ⊢ y z : ϵ ⊣ { β ≐ γ → ϵ }
+                      ├── { x : α , y : β , z : γ } ⊢ y : β ⊣ ∅
+                      └── { x : α , y : β , z : γ } ⊢ z : γ ⊣ ∅
+
+UNIFICATION
+
+  Step 0:
+    𝒮 = ∅
+    𝒰 = { α ≐ int → η , int ≐ int , ϵ ≐ int , β ≐ γ → ϵ }
+
+  Step 1:
+    𝒮 = { α ↦ int → η }
+    𝒰 = { int ≐ int , ϵ ≐ int , β ≐ γ → ϵ }
+
+  Step 2:
+    𝒮 = { α ↦ int → η }
+    𝒰 = { ϵ ≐ int , β ≐ γ → ϵ }
+
+  Step 3:
+    𝒮 = { α ↦ int → η , ϵ ↦ int }
+    𝒰 = { β ≐ γ → int }
+
+  Step 4:
+    𝒮 = { α ↦ int → η , ϵ ↦ int, β ↦ γ → int }
+    𝒰 = ∅
+
+  Final Answer: { α ↦ int → η , ϵ ↦ int, β ↦ γ → int }
+  Note: It doesn't matter terribly how the work is shown.
+
+PRINCIPLE TYPE
+
+  𝒮(α → β → γ → η) = (int → η) → (γ → int) → γ → η
+
+  Final Answer: ∀ η . ∀ γ . (int → η) → (γ → int) → γ → η
